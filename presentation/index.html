@@ -38,12 +38,18 @@
         border-bottom: 1px solid var(--border);
         display: flex;
         align-items: center;
-        gap: 4px;
+        justify-content: space-between;
         padding: 10px 20px;
+        gap: 12px;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
         overflow-x: auto;
         white-space: nowrap;
     }
-    .nav a {
+    .nav-links a {
         font-size: 0.8rem;
         font-weight: 700;
         color: var(--muted);
@@ -51,13 +57,33 @@
         padding: 6px 10px;
         border-radius: 8px;
     }
-    .nav a:hover { background: var(--blue-light); color: var(--blue); }
+    .nav-links a:hover { background: var(--blue-light); color: var(--blue); }
     .nav .brand {
         font-weight: 900;
         color: var(--navy);
-        margin-right: 12px;
+        margin-right: 8px;
         font-size: 0.95rem;
+        flex-shrink: 0;
     }
+    .lang-switch {
+        display: flex;
+        gap: 4px;
+        flex-shrink: 0;
+        background: #f1f5f9;
+        border-radius: 999px;
+        padding: 3px;
+    }
+    .lang-btn {
+        border: none;
+        background: transparent;
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: var(--muted);
+        cursor: pointer;
+    }
+    .lang-btn.active { background: var(--blue); color: #fff; }
 
     section { padding: 72px 24px; }
     .inner { max-width: 1000px; margin: 0 auto; }
@@ -326,34 +352,40 @@
 <body>
 
 <nav class="nav">
-    <span class="brand">Trable</span>
-    <a href="#overview">概要</a>
-    <a href="#stack">技術スタック</a>
-    <a href="#requirements">要件定義</a>
-    <a href="#architecture">アーキテクチャ</a>
-    <a href="#db">DB設計</a>
-    <a href="#myfeature">担当機能</a>
-    <a href="#advanced">個人開発パート</a>
-    <a href="#trouble">トラブルシューティング</a>
-    <a href="#team-ai">チーム&AI活用</a>
-    <a href="#closing">まとめ</a>
+    <div class="nav-links">
+        <span class="brand">Trable</span>
+        <a href="#overview" data-i18n="nav.overview">概要</a>
+        <a href="#stack" data-i18n="nav.stack">技術スタック</a>
+        <a href="#requirements" data-i18n="nav.requirements">要件定義</a>
+        <a href="#architecture" data-i18n="nav.architecture">アーキテクチャ</a>
+        <a href="#db" data-i18n="nav.db">DB設計</a>
+        <a href="#myfeature" data-i18n="nav.myfeature">担当機能</a>
+        <a href="#advanced" data-i18n="nav.advanced">個人開発パート</a>
+        <a href="#trouble" data-i18n="nav.trouble">トラブルシューティング</a>
+        <a href="#team-ai" data-i18n="nav.teamai">チーム&AI活用</a>
+        <a href="#closing" data-i18n="nav.closing">まとめ</a>
+    </div>
+    <div class="lang-switch">
+        <button type="button" class="lang-btn" data-lang="ko">한국어</button>
+        <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+    </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <section class="hero">
     <span class="eyebrow">PROJECT PRESENTATION</span>
     <h1>Trable</h1>
-    <p class="lead">旅行コミュニティWebサービス — 「旅を作れば、新しい物語が始まる」<br>Java Servlet/JSP・Oracle・多言語対応の実運用サービス</p>
+    <p class="lead" data-i18n="hero.lead">旅行コミュニティWebサービス — 「旅を作れば、新しい物語が始まる」<br>Java Servlet/JSP・Oracle・多言語対応の実運用サービス</p>
     <div class="badges">
         <span class="badge">Servlet / JSP</span>
         <span class="badge">Oracle DB</span>
         <span class="badge">MVC2 Pattern</span>
-        <span class="badge">多言語対応(KO/EN/JA)</span>
+        <span class="badge" data-i18n="hero.badge4">多言語対応(KO/EN/JA)</span>
     </div>
     <div class="meta">
-        <div><div class="k">TEAM</div><div class="v">4名</div></div>
-        <div><div class="k">役割分担</div><div class="v">機能単位</div></div>
-        <div><div class="k">STATUS</div><div class="v">本番稼働中</div></div>
+        <div><div class="k">TEAM</div><div class="v" data-i18n="hero.metaTeamValue">4名</div></div>
+        <div><div class="k" data-i18n="hero.metaRoleLabel">役割分担</div><div class="v" data-i18n="hero.metaRoleValue">機能単位</div></div>
+        <div><div class="k">STATUS</div><div class="v" data-i18n="hero.metaStatusValue">本番稼働中</div></div>
     </div>
 </section>
 
@@ -361,32 +393,32 @@
 <section id="overview">
     <div class="inner">
         <span class="eyebrow">PROJECT OVERVIEW</span>
-        <h2>プロジェクト概要</h2>
-        <p class="section-sub">開発背景・目的・チーム構成</p>
+        <h2 data-i18n="overview.title">プロジェクト概要</h2>
+        <p class="section-sub" data-i18n="overview.sub">開発背景・目的・チーム構成</p>
 
         <div class="grid-2">
             <div class="card">
-                <h3>💡 開発背景</h3>
-                <ul>
+                <h3 data-i18n="overview.bgTitle">💡 開発背景</h3>
+                <ul data-i18n="overview.bgBody">
                     <li>韓国・日本を中心とした旅行コミュニティサービスを、Servlet/JSP + Oracleというフレームワークに頼らない構成で一から実装</li>
                     <li>最初はFirebaseを使った反応型モックアップから始まり、実データベース(Oracle/JDBC)への移行を前提に設計</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>🎯 開発目的</h3>
-                <ul>
+                <h3 data-i18n="overview.goalTitle">🎯 開発目的</h3>
+                <ul data-i18n="overview.goalBody">
                     <li>MVC2パターンに基づいた保守性の高い構造の実装</li>
                     <li>会員権限・多言語・地図連動統計など、実務水準の機能設計能力の証明</li>
                     <li>チーム開発経験と、個人での継続的なサービス拡張能力の両方を提示</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>👥 チーム構成(4名)</h3>
-                <p>画面担当/バックエンド担当という役割分担ではなく、<b>各メンバーが特定の機能ドメインを選び、JSP〜Controller〜Command〜DAO〜DTOまでを一人で一貫して実装</b>し、最後にチームで統合する方式を採用。</p>
+                <h3 data-i18n="overview.teamTitle">👥 チーム構成(4名)</h3>
+                <p data-i18n="overview.teamBody">画面担当/バックエンド担当という役割分担ではなく、<b>各メンバーが特定の機能ドメインを選び、JSP〜Controller〜Command〜DAO〜DTOまでを一人で一貫して実装</b>し、最後にチームで統合する方式を採用。</p>
             </div>
             <div class="card">
-                <h3>📅 開発期間 / 技術環境</h3>
-                <ul>
+                <h3 data-i18n="overview.periodTitle">📅 開発期間 / 技術環境</h3>
+                <ul data-i18n="overview.periodBody">
                     <li>Java 17, Tomcat, Oracle 11g XE</li>
                     <li>Cloudflare Tunnel経由で本番公開(常時稼働)</li>
                 </ul>
@@ -399,15 +431,15 @@
 <section id="stack" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="inner">
         <span class="eyebrow">TECH STACK</span>
-        <h2>技術スタック</h2>
-        <p class="section-sub">フレームワークに頼らず、Servlet/JSPネイティブで実装</p>
+        <h2 data-i18n="stack.title">技術スタック</h2>
+        <p class="section-sub" data-i18n="stack.sub">フレームワークに頼らず、Servlet/JSPネイティブで実装</p>
 
         <div class="grid-4">
             <div class="card">
                 <h3>🖥️ Frontend</h3>
                 <ul>
                     <li>JSP / JSTL</li>
-                    <li>HTML / CSS(レスポンシブ)</li>
+                    <li data-i18n="stack.frontendLi2">HTML / CSS(レスポンシブ)</li>
                     <li>JavaScript(ES6+) / jQuery</li>
                 </ul>
             </div>
@@ -415,7 +447,7 @@
                 <h3>⚙️ Backend</h3>
                 <ul>
                     <li>Java Servlet / JDBC</li>
-                    <li>MVC2(Command パターン)</li>
+                    <li data-i18n="stack.backendLi2">MVC2(Command パターン)</li>
                     <li>Session / Filter</li>
                 </ul>
             </div>
@@ -424,7 +456,7 @@
                 <ul>
                     <li>Oracle 11g XE</li>
                     <li>PreparedStatement / Sequence</li>
-                    <li>ウィンドウ関数(地域別統計)</li>
+                    <li data-i18n="stack.dbLi3">ウィンドウ関数(地域別統計)</li>
                 </ul>
             </div>
             <div class="card">
@@ -443,32 +475,32 @@
 <section id="requirements">
     <div class="inner">
         <span class="eyebrow">REQUIREMENTS ANALYSIS</span>
-        <h2>要件定義</h2>
-        <p class="section-sub">機能要件 / 非機能要件</p>
+        <h2 data-i18n="req.title">要件定義</h2>
+        <p class="section-sub" data-i18n="req.sub">機能要件 / 非機能要件</p>
 
         <table style="margin-bottom:20px;">
-            <tr><th style="width:18%;">モジュール</th><th style="width:28%;">機能</th><th>内容</th></tr>
-            <tr><td>会員</td><td>登録・ログイン・マイページ</td><td>性別/国/誕生日などプロフィール項目、公開範囲設定、管理者による権限レベル(0/1/2)管理</td></tr>
-            <tr><td>掲示板</td><td>投稿CRUD・検索・ページング</td><td>国(KR/JP/ETC)・地域・旅行スタイル(ヒーリング/グルメ/アクティビティ/ショッピング)によるタグ付け、画像アップロード</td></tr>
-            <tr><td>コメント/いいね/スクラップ</td><td>投稿への反応機能</td><td>コメント登録・削除、いいね、スクラップ(お気に入り)、カウンターのリアルタイム反映</td></tr>
-            <tr><td>通知</td><td>コメント・いいね通知</td><td>自分の投稿への反応をベルアイコンで通知、未読バッジ表示</td></tr>
-            <tr><td>ランキング</td><td>地域別人気投稿の可視化</td><td>性別×国別の人気地域ランキング + SVG地図による色分け可視化(後述)</td></tr>
-            <tr><td>管理者機能</td><td>権限管理・ログ・お知らせ・FAQ</td><td>会員権限変更、投稿操作ログ、お知らせ/FAQ/問い合わせの管理</td></tr>
-            <tr><td>多言語</td><td>韓国語/英語/日本語切替</td><td>画面全体のUIテキスト・地図ラベル・通知メッセージまで動的に切替</td></tr>
+            <tr><th style="width:18%;" data-i18n="req.th1">モジュール</th><th style="width:28%;" data-i18n="req.th2">機能</th><th data-i18n="req.th3">内容</th></tr>
+            <tr><td data-i18n="req.r1.m">会員</td><td data-i18n="req.r1.f">登録・ログイン・マイページ</td><td data-i18n="req.r1.d">性別/国/誕生日などプロフィール項目、公開範囲設定、管理者による権限レベル(0/1/2)管理</td></tr>
+            <tr><td data-i18n="req.r2.m">掲示板</td><td data-i18n="req.r2.f">投稿CRUD・検索・ページング</td><td data-i18n="req.r2.d">国(KR/JP/ETC)・地域・旅行スタイル(ヒーリング/グルメ/アクティビティ/ショッピング)によるタグ付け、画像アップロード</td></tr>
+            <tr><td data-i18n="req.r3.m">コメント/いいね/スクラップ</td><td data-i18n="req.r3.f">投稿への反応機能</td><td data-i18n="req.r3.d">コメント登録・削除、いいね、スクラップ(お気に入り)、カウンターのリアルタイム反映</td></tr>
+            <tr><td data-i18n="req.r4.m">通知</td><td data-i18n="req.r4.f">コメント・いいね通知</td><td data-i18n="req.r4.d">自分の投稿への反応をベルアイコンで通知、未読バッジ表示</td></tr>
+            <tr><td data-i18n="req.r5.m">ランキング</td><td data-i18n="req.r5.f">地域別人気投稿の可視化</td><td data-i18n="req.r5.d">性別×国別の人気地域ランキング + SVG地図による色分け可視化(後述)</td></tr>
+            <tr><td data-i18n="req.r6.m">管理者機能</td><td data-i18n="req.r6.f">権限管理・ログ・お知らせ・FAQ</td><td data-i18n="req.r6.d">会員権限変更、投稿操作ログ、お知らせ/FAQ/問い合わせの管理</td></tr>
+            <tr><td data-i18n="req.r7.m">多言語</td><td data-i18n="req.r7.f">韓国語/英語/日本語切替</td><td data-i18n="req.r7.d">画面全体のUIテキスト・地図ラベル・通知メッセージまで動的に切替</td></tr>
         </table>
 
         <div class="grid-2">
             <div class="card">
-                <h3>🔒 セキュリティ</h3>
-                <ul>
+                <h3 data-i18n="req.secTitle">🔒 セキュリティ</h3>
+                <ul data-i18n="req.secBody">
                     <li>全SQLをPreparedStatementでバインド(SQLインジェクション対策)</li>
                     <li>作成者・権限レベルをセッション情報のみで判定</li>
                     <li>管理者機能はadmin_level別にアクセス制御</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>📱 性能/UX</h3>
-                <ul>
+                <h3 data-i18n="req.perfTitle">📱 性能/UX</h3>
+                <ul data-i18n="req.perfBody">
                     <li>一覧・マイページのページング処理</li>
                     <li>モバイル専用レイアウト(767px以下)+ ドロワーメニュー</li>
                     <li>ダークモード(アカウント保存 or ローカル保存)</li>
@@ -482,8 +514,8 @@
 <section id="architecture" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="inner">
         <span class="eyebrow">SYSTEM ARCHITECTURE</span>
-        <h2>システムアーキテクチャ(MVC2)</h2>
-        <p class="section-sub">Command パターンによるリクエスト処理</p>
+        <h2 data-i18n="arch.title">システムアーキテクチャ(MVC2)</h2>
+        <p class="section-sub" data-i18n="arch.sub">Command パターンによるリクエスト処理</p>
 
         <div class="card" style="padding:28px;">
             <div style="display:flex;flex-wrap:wrap;gap:0;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:var(--navy);text-align:center;">
@@ -497,7 +529,7 @@
                 <div style="padding:0 10px;color:var(--muted);">→</div>
                 <div style="background:#ecfdf5;border:1px solid #d1fae5;border-radius:10px;padding:14px 18px;color:var(--green);">Oracle DB</div>
             </div>
-            <p style="margin-top:22px;font-size:0.88rem;">
+            <p style="margin-top:22px;font-size:0.88rem;" data-i18n="arch.body">
                 コントローラーはURLパスからCommandを選び実行するのみで、SQLやビジネスロジックを持たない。
                 Commandが戻り値(true/false)でforward(画面表示)かredirect(処理完了後の再読み込み防止)かを制御する。
                 DTOは各層間のデータ受け渡し専用で、DAOのみがSQLを実行する。
@@ -510,11 +542,11 @@
 <section id="db">
     <div class="inner">
         <span class="eyebrow">DATABASE DESIGN</span>
-        <h2>DB設計(ERD)</h2>
-        <p class="section-sub">Oracle 11g XE / 全10テーブル</p>
+        <h2 data-i18n="db.title">DB設計(ERD)</h2>
+        <p class="section-sub" data-i18n="db.sub">Oracle 11g XE / 全10テーブル</p>
 
         <div class="media-box" style="aspect-ratio:16/9;" data-asset="P01">
-            <div>
+            <div data-i18n="db.p01">
                 <span class="tag">素材 P01(任意)</span>
                 実際のER図(画像)を挿入する場合はここに配置<br>
                 <span style="font-size:0.72rem;">※ 下の表だけでも代替可能</span>
@@ -522,17 +554,17 @@
         </div>
 
         <table>
-            <tr><th style="width:16%;">テーブル</th><th style="width:14%;">PK</th><th>説明</th></tr>
-            <tr><td>members</td><td>id</td><td>会員(ログインID=メール)。admin_level(0/1/2)で権限管理、dark_mode等の個人設定も保持</td></tr>
-            <tr><td>posts</td><td>bno</td><td>投稿。country/region/styleでタグ付け、view_cnt・like_cntを集計カラムとして保持</td></tr>
-            <tr><td>comments</td><td>cno</td><td>コメント。posts削除時にON DELETE CASCADE</td></tr>
-            <tr><td>post_likes</td><td>bno+member_id</td><td>いいね。複合キーで二重いいねをDBレベルで防止</td></tr>
-            <tr><td>scraps</td><td>member_id+bno</td><td>スクラップ(お気に入り)</td></tr>
-            <tr><td>post_logs</td><td>log_id</td><td>投稿CRUD操作ログ(管理者画面)。削除済み投稿のタイトルも保持</td></tr>
-            <tr><td>notices</td><td>notice_id</td><td>管理者のお知らせ(全会員の通知ベルに表示)</td></tr>
-            <tr><td>notifications</td><td>notif_id</td><td>個人宛通知(コメント/いいね)。未読/既読管理</td></tr>
-            <tr><td>faqs</td><td>faq_id</td><td>よくある質問(フッターから閲覧、管理者が編集)</td></tr>
-            <tr><td>inquiries</td><td>inquiry_id</td><td>問い合わせ。公開/非公開(本人+管理者のみ)設定可</td></tr>
+            <tr><th style="width:16%;" data-i18n="db.th1">テーブル</th><th style="width:14%;">PK</th><th data-i18n="db.th3">説明</th></tr>
+            <tr><td>members</td><td>id</td><td data-i18n="db.d.members">会員(ログインID=メール)。admin_level(0/1/2)で権限管理、dark_mode等の個人設定も保持</td></tr>
+            <tr><td>posts</td><td>bno</td><td data-i18n="db.d.posts">投稿。country/region/styleでタグ付け、view_cnt・like_cntを集計カラムとして保持</td></tr>
+            <tr><td>comments</td><td>cno</td><td data-i18n="db.d.comments">コメント。posts削除時にON DELETE CASCADE</td></tr>
+            <tr><td>post_likes</td><td>bno+member_id</td><td data-i18n="db.d.likes">いいね。複合キーで二重いいねをDBレベルで防止</td></tr>
+            <tr><td>scraps</td><td>member_id+bno</td><td data-i18n="db.d.scraps">スクラップ(お気に入り)</td></tr>
+            <tr><td>post_logs</td><td>log_id</td><td data-i18n="db.d.logs">投稿CRUD操作ログ(管理者画面)。削除済み投稿のタイトルも保持</td></tr>
+            <tr><td>notices</td><td>notice_id</td><td data-i18n="db.d.notices">管理者のお知らせ(全会員の通知ベルに表示)</td></tr>
+            <tr><td>notifications</td><td>notif_id</td><td data-i18n="db.d.notifs">個人宛通知(コメント/いいね)。未読/既読管理</td></tr>
+            <tr><td>faqs</td><td>faq_id</td><td data-i18n="db.d.faqs">よくある質問(フッターから閲覧、管理者が編集)</td></tr>
+            <tr><td>inquiries</td><td>inquiry_id</td><td data-i18n="db.d.inquiries">問い合わせ。公開/非公開(本人+管理者のみ)設定可</td></tr>
         </table>
     </div>
 </section>
@@ -541,13 +573,13 @@
 <section id="myfeature" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="inner">
         <span class="eyebrow">MY ASSIGNED FEATURE</span>
-        <h2>担当機能 — お知らせ・FAQ・お問い合わせ</h2>
-        <p class="section-sub">チームプロジェクト内での担当範囲(JSP〜Controller〜Command〜DAO〜DTOを一貫して実装)</p>
+        <h2 data-i18n="myfeature.title">担当機能 — お知らせ・FAQ・お問い合わせ</h2>
+        <p class="section-sub" data-i18n="myfeature.sub">チームプロジェクト内での担当範囲(JSP〜Controller〜Command〜DAO〜DTOを一貫して実装)</p>
 
         <div class="grid-3">
             <div class="card">
-                <h3>📢 お知らせ(Notice)</h3>
-                <ul>
+                <h3 data-i18n="myfeature.noticeTitle">📢 お知らせ(Notice)</h3>
+                <ul data-i18n="myfeature.noticeBody">
                     <li>管理者が作成・編集・削除</li>
                     <li>全会員の通知ベルに連動表示</li>
                     <li>一般会員向け公開一覧画面</li>
@@ -555,14 +587,14 @@
             </div>
             <div class="card">
                 <h3>❓ FAQ</h3>
-                <ul>
+                <ul data-i18n="myfeature.faqBody">
                     <li>よくある質問の登録・修正・削除</li>
                     <li>フッターリンクから誰でも閲覧可能</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>✉️ お問い合わせ(Inquiry)</h3>
-                <ul>
+                <h3 data-i18n="myfeature.inquiryTitle">✉️ お問い合わせ(Inquiry)</h3>
+                <ul data-i18n="myfeature.inquiryBody">
                     <li>会員による問い合わせ投稿</li>
                     <li>公開/非公開設定(本人+管理者のみ閲覧)</li>
                 </ul>
@@ -571,17 +603,17 @@
 
         <div class="shot-block">
             <img class="shot" src="assets/p02-support-faq.jpg" alt="よくある質問・お問い合わせ画面">
-            <p class="shot-cap">サポートページ — よくある質問(アコーディオン表示)とお問い合わせフォームが同一画面に統合されている</p>
+            <p class="shot-cap" data-i18n="myfeature.shotFaqCap">サポートページ — よくある質問(アコーディオン表示)とお問い合わせフォームが同一画面に統合されている</p>
         </div>
 
         <div class="shot-grid cols-2">
             <figure>
                 <img class="shot" src="assets/p03a-notice-list.jpg" alt="お知らせ一覧画面">
-                <figcaption>お知らせ一覧(一般会員向け公開画面)</figcaption>
+                <figcaption data-i18n="myfeature.noticeListCap">お知らせ一覧(一般会員向け公開画面)</figcaption>
             </figure>
             <figure>
                 <img class="shot" src="assets/p03b-admin-dashboard.jpg" alt="管理者ダッシュボード画面">
-                <figcaption>管理者ダッシュボード — お知らせ管理・FAQ管理カード</figcaption>
+                <figcaption data-i18n="myfeature.adminDashCap">管理者ダッシュボード — お知らせ管理・FAQ管理カード</figcaption>
             </figure>
         </div>
     </div>
@@ -591,12 +623,12 @@
 <section id="advanced">
     <div class="inner">
         <span class="eyebrow">PERSONAL ENHANCEMENT</span>
-        <h2>個人開発パート(高度化)</h2>
-        <p class="section-sub">チームプロジェクト終了後、ポートフォリオとして個人で設計・実装した拡張機能</p>
+        <h2 data-i18n="advanced.title">個人開発パート(高度化)</h2>
+        <p class="section-sub" data-i18n="advanced.sub">チームプロジェクト終了後、ポートフォリオとして個人で設計・実装した拡張機能</p>
 
         <div class="card" style="margin-bottom:28px;">
-            <h3>🌐 多言語対応(韓国語 / 英語 / 日本語)</h3>
-            <p>ヘッダーの言語セレクターで即座に切替。静的テキストだけでなく、JSから動的に挿入されるコメント・通知メッセージ・地図ラベルまで全て翻訳対象。</p>
+            <h3 data-i18n="advanced.i18nTitle">🌐 多言語対応(韓国語 / 英語 / 日本語)</h3>
+            <p data-i18n="advanced.i18nBody">ヘッダーの言語セレクターで即座に切替。静的テキストだけでなく、JSから動的に挿入されるコメント・通知メッセージ・地図ラベルまで全て翻訳対象。</p>
             <div class="shot-grid cols-3">
                 <figure>
                     <img class="shot" src="assets/p05-ko.jpg" alt="韓国語UI">
@@ -611,39 +643,39 @@
                     <figcaption>日本語</figcaption>
                 </figure>
             </div>
-            <div class="ai-note"><span>🤖</span><div><b>AI活用:</b> 動的コンテンツ(AJAX挿入分)まで一貫して翻訳が当たる仕組みの設計をAIと相談しながら構築。</div></div>
+            <div class="ai-note"><span>🤖</span><div data-i18n="advanced.i18nAi"><b>AI活用:</b> 動的コンテンツ(AJAX挿入分)まで一貫して翻訳が当たる仕組みの設計をAIと相談しながら構築。</div></div>
         </div>
 
         <div class="card" style="margin-bottom:28px;">
-            <h3>🌓 ダークモード</h3>
-            <p>CSS変数ベースの配色切替。ログイン時はアカウントに保存、未ログイン時はローカルストレージに保存し、次回訪問時も維持。</p>
+            <h3 data-i18n="advanced.darkTitle">🌓 ダークモード</h3>
+            <p data-i18n="advanced.darkBody">CSS変数ベースの配色切替。ログイン時はアカウントに保存、未ログイン時はローカルストレージに保存し、次回訪問時も維持。</p>
             <div class="shot-grid cols-2">
                 <figure>
                     <img class="shot" src="assets/p06-light.jpg" alt="ライトモード">
-                    <figcaption>ライトモード</figcaption>
+                    <figcaption data-i18n="advanced.lightCap">ライトモード</figcaption>
                 </figure>
                 <figure>
                     <img class="shot" src="assets/p06-dark.jpg" alt="ダークモード">
-                    <figcaption>ダークモード</figcaption>
+                    <figcaption data-i18n="advanced.darkCap">ダークモード</figcaption>
                 </figure>
             </div>
         </div>
 
         <div class="card" style="margin-bottom:28px;">
-            <h3>🛡️ 管理者権限レベル(0 / 1 / 2)</h3>
-            <p>一般会員(0)・モデレーター(1)・管理者(2)の3段階。管理者のみが他会員の権限を変更可能、モデレーターは管理者の権限を変更不可、といった権限境界をバックエンド側でも二重に検証。</p>
+            <h3 data-i18n="advanced.adminTitle">🛡️ 管理者権限レベル(0 / 1 / 2)</h3>
+            <p data-i18n="advanced.adminBody">一般会員(0)・モデレーター(1)・管理者(2)の3段階。管理者のみが他会員の権限を変更可能、モデレーターは管理者の権限を変更不可、といった権限境界をバックエンド側でも二重に検証。</p>
             <div class="shot-block">
                 <img class="shot" src="assets/p07-admin-members.jpg" alt="管理者の会員管理画面">
-                <p class="shot-cap">会員管理画面(権限レベル変更ドロップダウン・活動停止/解除ボタン) — 会員の個人情報(氏名・メールアドレス)部分はマスキング処理済み</p>
+                <p class="shot-cap" data-i18n="advanced.adminShotCap">会員管理画面(権限レベル変更ドロップダウン・活動停止/解除ボタン) — 会員の個人情報(氏名・メールアドレス)部分はマスキング処理済み</p>
             </div>
         </div>
 
         <div class="card" style="margin-bottom:28px;">
-            <h3>🗺️ インタラクティブ・ランキング地図</h3>
-            <p>韓国/日本の地域別投稿数をSVGコロプレス地図で可視化。ホバーで人気投稿プレビュー、クリックで該当地域の一覧へ遷移。ピンチズーム・ドラッグパンにも対応し、ズームしていない状態ではページスクロールを優先するよう調整。</p>
+            <h3 data-i18n="advanced.mapTitle">🗺️ インタラクティブ・ランキング地図</h3>
+            <p data-i18n="advanced.mapBody">韓国/日本の地域別投稿数をSVGコロプレス地図で可視化。ホバーで人気投稿プレビュー、クリックで該当地域の一覧へ遷移。ピンチズーム・ドラッグパンにも対応し、ズームしていない状態ではページスクロールを優先するよう調整。</p>
             <div class="shot-block">
                 <img class="shot" src="assets/p08-ranking-map.jpg" alt="ランキングページの地域マップ">
-                <p class="shot-cap">日本地域別ランキング地図 — 地域ホバー時に人気投稿3件をプレビュー表示</p>
+                <p class="shot-cap" data-i18n="advanced.mapShotCap">日本地域別ランキング地図 — 地域ホバー時に人気投稿3件をプレビュー表示</p>
             </div>
             <!-- YouTube動画が準備出来次第、以下のコメントを外して埋め込み予定
             <div class="shot-block" style="aspect-ratio:16/9;">
@@ -653,17 +685,17 @@
             </div>
             -->
             <div class="media-box" style="aspect-ratio:16/9;" data-asset="P08-video">
-                <div><span class="tag">素材 P08-video(任意)</span>確大/ドラッグ操作のYouTube動画リンクをもらい次第、埋め込み予定</div>
+                <div data-i18n="advanced.mapVideoPlaceholder"><span class="tag">素材 P08-video(任意)</span>拡大/ドラッグ操作のYouTube動画リンクをもらい次第、埋め込み予定</div>
             </div>
-            <div class="ai-note"><span>🤖</span><div><b>AI活用:</b> SVGのviewBox座標変換によるズーム/パンの実装は、カリキュラムで学んでいなかった技術。AIから数式の原理(コンテンツ座標とスクリーン座標の変換)を教わりながら学習し、自ら実装・デバッグした。</div></div>
+            <div class="ai-note"><span>🤖</span><div data-i18n="advanced.mapAi"><b>AI活用:</b> SVGのviewBox座標変換によるズーム/パンの実装は、カリキュラムで学んでいなかった技術。AIから数式の原理(コンテンツ座標とスクリーン座標の変換)を教わりながら学習し、自ら実装・デバッグした。</div></div>
         </div>
 
         <div class="card">
-            <h3>📱 モバイル対応</h3>
-            <p>767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。</p>
+            <h3 data-i18n="advanced.mobileTitle">📱 モバイル対応</h3>
+            <p data-i18n="advanced.mobileBody">767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。</p>
             <div class="mobile-shot-wrap">
                 <img class="shot" src="assets/p09-mobile-drawer.jpg" alt="モバイル幅でのドロワーメニュー">
-                <p class="shot-cap">767px以下で表示されるドロワー型ナビゲーション</p>
+                <p class="shot-cap" data-i18n="advanced.mobileShotCap">767px以下で表示されるドロワー型ナビゲーション</p>
             </div>
         </div>
     </div>
@@ -673,31 +705,31 @@
 <section id="trouble" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
     <div class="inner">
         <span class="eyebrow">TROUBLESHOOTING</span>
-        <h2>トラブルシューティング</h2>
-        <p class="section-sub">開発・運用中に実際に遭遇した問題と解決</p>
+        <h2 data-i18n="trouble.title">トラブルシューティング</h2>
+        <p class="section-sub" data-i18n="trouble.sub">開発・運用中に実際に遭遇した問題と解決</p>
 
         <div class="ts-item">
-            <h4>CDNキャッシュにより、CSS/画像修正が本番に反映されない</h4>
-            <p class="problem"><b>問題:</b> CloudflareのエッジキャッシュがCSS/SVG画像を最大4時間キャッシュし、修正してもすぐには反映されなかった。</p>
-            <p class="fix"><b>解決:</b> ファイルの最終更新時刻を取得し、<code>?v=&lt;timestamp&gt;</code>をクエリ文字列として付与。更新するたびにURL自体が変わるため、キャッシュを確実に無効化。</p>
+            <h4 data-i18n="trouble.i1.h">CDNキャッシュにより、CSS/画像修正が本番に反映されない</h4>
+            <p class="problem" data-i18n="trouble.i1.p">問題</p>
+            <p class="fix" data-i18n="trouble.i1.f">解決</p>
         </div>
 
         <div class="ts-item">
-            <h4>地図をドラッグすると、モバイルでページスクロールができなくなる</h4>
-            <p class="problem"><b>問題:</b> ズーム/パン機能のために<code>touch-action:none</code>を設定したところ、地図上での縦方向スワイプが全てパン操作に吸収され、ページスクロールが一切できなくなった。</p>
-            <p class="fix"><b>解決:</b> 拡大していない状態、またはパンがすでに端まで達している状態を検知し、その分の操作を<code>window.scrollBy()</code>でページスクロールに回す処理を追加。さらに、サイト全体に設定されていた<code>scroll-behavior:smooth</code>がスクロール命令を毎回アニメーションさせてしまい連続操作が打ち消し合っていたため、<code>behavior:"instant"</code>を明示して解決。</p>
+            <h4 data-i18n="trouble.i2.h">地図をドラッグすると、モバイルでページスクロールができなくなる</h4>
+            <p class="problem" data-i18n="trouble.i2.p">問題</p>
+            <p class="fix" data-i18n="trouble.i2.f">解決</p>
         </div>
 
         <div class="ts-item">
-            <h4>モバイル幅→PC幅にリサイズすると、ヘッダーメニュー全体が反応しなくなる</h4>
-            <p class="problem"><b>問題:</b> モバイル幅でドロワーメニューを一度も開かずにPC幅までウィンドウを広げると、閉じた状態のまま<code>inert</code>属性がtrueで残り、見た目は通常のPCメニューなのにクリック・フォーカスが一切効かなくなっていた。</p>
-            <p class="fix"><b>解決:</b> リサイズのたびに開閉状態を無条件に再計算するよう修正し、双方向の画面幅変化に対応。</p>
+            <h4 data-i18n="trouble.i3.h">モバイル幅→PC幅にリサイズすると、ヘッダーメニュー全体が反応しなくなる</h4>
+            <p class="problem" data-i18n="trouble.i3.p">問題</p>
+            <p class="fix" data-i18n="trouble.i3.f">解決</p>
         </div>
 
         <div class="ts-item">
-            <h4>sqlplus経由の韓国語データ投入でUTF-8が化ける</h4>
-            <p class="problem"><b>問題:</b> <code>NLS_LANG</code>を明示せずにsqlplusへ韓国語文字列を流し込むと、DB自体はAL32UTF8で正しく設定されているにもかかわらず、投入データだけが文字化け(U+FFFD)した。</p>
-            <p class="fix"><b>解決:</b> <code>NLS_LANG=AMERICAN_AMERICA.AL32UTF8</code>を明示してから実行するよう徹底。</p>
+            <h4 data-i18n="trouble.i4.h">sqlplus経由の韓国語データ投入でUTF-8が化ける</h4>
+            <p class="problem" data-i18n="trouble.i4.p">問題</p>
+            <p class="fix" data-i18n="trouble.i4.f">解決</p>
         </div>
     </div>
 </section>
@@ -706,38 +738,38 @@
 <section id="team-ai">
     <div class="inner">
         <span class="eyebrow">TEAM COLLABORATION & AI USAGE</span>
-        <h2>チーム協業方式とAI活用について</h2>
-        <p class="section-sub">正直に、具体的に示す</p>
+        <h2 data-i18n="teamai.title">チーム協業方式とAI活用について</h2>
+        <p class="section-sub" data-i18n="teamai.sub">正直に、具体的に示す</p>
 
         <div class="role-split" style="margin-bottom:24px;">
             <div class="card mine">
-                <h3>✅ 自分が実装した範囲</h3>
-                <p><b>チームプロジェクト:</b> お知らせ・FAQ・お問い合わせ(JSP〜DTOまで一貫実装)</p>
-                <p><b>個人開発(ポートフォリオ化):</b> 多言語対応・ダークモード・管理者権限レベル・インタラクティブランキング地図・モバイル対応 等、全体の高度化を自ら設計・実装</p>
+                <h3 data-i18n="teamai.mineTitle">✅ 自分が実装した範囲</h3>
+                <p data-i18n="teamai.mineP1"><b>チームプロジェクト:</b> お知らせ・FAQ・お問い合わせ(JSP〜DTOまで一貫実装)</p>
+                <p data-i18n="teamai.mineP2"><b>個人開発(ポートフォリオ化):</b> 多言語対応・ダークモード・管理者権限レベル・インタラクティブランキング地図・モバイル対応 等、全体の高度化を自ら設計・実装</p>
             </div>
             <div class="card others">
-                <h3>👥 チームでの協業</h3>
-                <p>4名のチームで、機能ドメインごとに各自が担当範囲を一貫実装し、最終的に統合。</p>
-                <p>アイデアの検討段階ではチームメンバーともフィードバックを交わしながら方向性を発展させた。</p>
+                <h3 data-i18n="teamai.othersTitle">👥 チームでの協業</h3>
+                <p data-i18n="teamai.othersP1">4名のチームで、機能ドメインごとに各自が担当範囲を一貫実装し、最終的に統合。</p>
+                <p data-i18n="teamai.othersP2">アイデアの検討段階ではチームメンバーともフィードバックを交わしながら方向性を発展させた。</p>
             </div>
         </div>
 
         <div class="card">
-            <h3>🤖 AI活用について(正直に)</h3>
-            <p>
+            <h3 data-i18n="teamai.aiTitle">🤖 AI活用について(正直に)</h3>
+            <p data-i18n="teamai.aiP1">
                 個人開発パートの実装では、AIコーディングツール(Claude Code)を積極的に活用した。
                 特に、SVGベースのインタラクティブな地図やviewBox座標変換のように、<b>カリキュラムでは扱わなかった技術</b>については、
                 AIから概念と実装の原理を教わりながら学習を重ね、自ら適用した。
             </p>
-            <p>
+            <p data-i18n="teamai.aiP2">
                 <b>AIに代わりに作ってもらった成果物ではなく、AIを通じて技術を教わり、学習を並行しながら完成させた成果物</b>である点を明確にしておきたい。
                 実装の意図・設計判断・デバッグは自ら行い、AIは「新しい技術を学ぶ相手」として活用した。
             </p>
         </div>
 
         <div class="card" style="margin-top:20px;">
-            <h3>📦 プロジェクトの変遷</h3>
-            <p>
+            <h3 data-i18n="teamai.histTitle">📦 プロジェクトの変遷</h3>
+            <p data-i18n="teamai.histBody">
                 本プロジェクトは、まずFirebase(Authentication / Firestore / Storage)を用いた反応型モックアップとして
                 チーム4名で共同開発を開始し、その後Oracle/JDBCへの本格移行を行った。
                 初期モックアップは <a href="../demo/" target="_blank">こちら(チーム初期プロトタイプ)</a> から確認できる。
@@ -750,20 +782,305 @@
 <section id="closing" style="background:#fff;border-top:1px solid var(--border);">
     <div class="inner">
         <div class="cta">
-            <h2>ご覧いただきありがとうございました</h2>
-            <p>実際に動作するライブサイトで、全機能をお試しいただけます。</p>
+            <h2 data-i18n="closing.title">ご覧いただきありがとうございました</h2>
+            <p data-i18n="closing.body">実際に動作するライブサイトで、全機能をお試しいただけます。</p>
             <div class="cta-buttons">
-                <a class="btn primary" href="https://trable.elytext.com" target="_blank" rel="noopener">ライブサイトを見る →</a>
-                <a class="btn ghost" href="https://github.com/noadot-pixel/trable-jdbc" target="_blank" rel="noopener">GitHubで見る</a>
-                <a class="btn ghost" href="../">ポートフォリオ・ハブに戻る</a>
+                <a class="btn primary" href="https://trable.elytext.com" target="_blank" rel="noopener" data-i18n="closing.btnLive">ライブサイトを見る →</a>
+                <a class="btn ghost" href="https://github.com/noadot-pixel/trable-jdbc" target="_blank" rel="noopener" data-i18n="closing.btnGithub">GitHubで見る</a>
+                <a class="btn ghost" href="../" data-i18n="closing.btnHub">ポートフォリオ・ハブに戻る</a>
             </div>
         </div>
     </div>
 </section>
 
 <footer class="page-footer">
-    Trable Project &middot; お問い合わせ: (準備中) &middot; <a href="https://github.com/noadot-pixel">GitHub</a>
+    <span data-i18n="footer.text">Trable Project &middot; お問い合わせ: (準備中) &middot; </span><a href="https://github.com/noadot-pixel">GitHub</a>
 </footer>
+
+<script>
+(function () {
+
+    var LANG_KEY = "trable-portfolio-lang";
+
+    var Q1 = '<b>問題:</b> ズーム/パン機能のために<code>touch-action:none</code>を設定したところ、地図上での縦方向スワイプが全てパン操作に吸収され、ページスクロールが一切できなくなった。';
+    var Q1K = '<b>문제:</b> 줌/팬 기능을 위해 <code>touch-action:none</code>을 설정했더니, 지도 위에서의 세로 방향 스와이프가 전부 팬 동작으로 흡수되어 페이지 스크롤이 전혀 되지 않게 됨.';
+    var F1 = '<b>解決:</b> 拡大していない状態、またはパンがすでに端まで達している状態を検知し、その分の操作を<code>window.scrollBy()</code>でページスクロールに回す処理を追加。さらに、サイト全体に設定されていた<code>scroll-behavior:smooth</code>がスクロール命令を毎回アニメーションさせてしまい連続操作が打ち消し合っていたため、<code>behavior:"instant"</code>を明示して解決。';
+    var F1K = '<b>해결:</b> 확대하지 않은 상태, 또는 팬이 이미 끝까지 도달한 상태를 감지해서 그만큼의 조작을 <code>window.scrollBy()</code>로 페이지 스크롤에 돌리는 처리를 추가. 게다가 사이트 전체에 걸려 있던 <code>scroll-behavior:smooth</code>가 스크롤 명령을 매번 애니메이션시켜서 연속 조작이 서로 상쇄되고 있었기 때문에, <code>behavior:"instant"</code>를 명시해서 해결.';
+
+    var DICT = {
+        ja: {
+            "nav.overview": "概要", "nav.stack": "技術スタック", "nav.requirements": "要件定義",
+            "nav.architecture": "アーキテクチャ", "nav.db": "DB設計", "nav.myfeature": "担当機能",
+            "nav.advanced": "個人開発パート", "nav.trouble": "トラブルシューティング",
+            "nav.teamai": "チーム&AI活用", "nav.closing": "まとめ",
+
+            "hero.lead": "旅行コミュニティWebサービス — 「旅を作れば、新しい物語が始まる」<br>Java Servlet/JSP・Oracle・多言語対応の実運用サービス",
+            "hero.badge4": "多言語対応(KO/EN/JA)",
+            "hero.metaTeamValue": "4名", "hero.metaRoleLabel": "役割分担", "hero.metaRoleValue": "機能単位",
+            "hero.metaStatusValue": "本番稼働中",
+
+            "overview.title": "プロジェクト概要", "overview.sub": "開発背景・目的・チーム構成",
+            "overview.bgTitle": "💡 開発背景",
+            "overview.bgBody": "<li>韓国・日本を中心とした旅行コミュニティサービスを、Servlet/JSP + Oracleというフレームワークに頼らない構成で一から実装</li><li>最初はFirebaseを使った反応型モックアップから始まり、実データベース(Oracle/JDBC)への移行を前提に設計</li>",
+            "overview.goalTitle": "🎯 開発目的",
+            "overview.goalBody": "<li>MVC2パターンに基づいた保守性の高い構造の実装</li><li>会員権限・多言語・地図連動統計など、実務水準の機能設計能力の証明</li><li>チーム開発経験と、個人での継続的なサービス拡張能力の両方を提示</li>",
+            "overview.teamTitle": "👥 チーム構成(4名)",
+            "overview.teamBody": "画面担当/バックエンド担当という役割分担ではなく、<b>各メンバーが特定の機能ドメインを選び、JSP〜Controller〜Command〜DAO〜DTOまでを一人で一貫して実装</b>し、最後にチームで統合する方式を採用。",
+            "overview.periodTitle": "📅 開発期間 / 技術環境",
+            "overview.periodBody": "<li>Java 17, Tomcat, Oracle 11g XE</li><li>Cloudflare Tunnel経由で本番公開(常時稼働)</li>",
+
+            "stack.title": "技術スタック", "stack.sub": "フレームワークに頼らず、Servlet/JSPネイティブで実装",
+            "stack.frontendLi2": "HTML / CSS(レスポンシブ)", "stack.backendLi2": "MVC2(Command パターン)",
+            "stack.dbLi3": "ウィンドウ関数(地域別統計)",
+
+            "req.title": "要件定義", "req.sub": "機能要件 / 非機能要件",
+            "req.th1": "モジュール", "req.th2": "機能", "req.th3": "内容",
+            "req.r1.m": "会員", "req.r1.f": "登録・ログイン・マイページ", "req.r1.d": "性別/国/誕生日などプロフィール項目、公開範囲設定、管理者による権限レベル(0/1/2)管理",
+            "req.r2.m": "掲示板", "req.r2.f": "投稿CRUD・検索・ページング", "req.r2.d": "国(KR/JP/ETC)・地域・旅行スタイル(ヒーリング/グルメ/アクティビティ/ショッピング)によるタグ付け、画像アップロード",
+            "req.r3.m": "コメント/いいね/スクラップ", "req.r3.f": "投稿への反応機能", "req.r3.d": "コメント登録・削除、いいね、スクラップ(お気に入り)、カウンターのリアルタイム反映",
+            "req.r4.m": "通知", "req.r4.f": "コメント・いいね通知", "req.r4.d": "自分の投稿への反応をベルアイコンで通知、未読バッジ表示",
+            "req.r5.m": "ランキング", "req.r5.f": "地域別人気投稿の可視化", "req.r5.d": "性別×国別の人気地域ランキング + SVG地図による色分け可視化(後述)",
+            "req.r6.m": "管理者機能", "req.r6.f": "権限管理・ログ・お知らせ・FAQ", "req.r6.d": "会員権限変更、投稿操作ログ、お知らせ/FAQ/問い合わせの管理",
+            "req.r7.m": "多言語", "req.r7.f": "韓国語/英語/日本語切替", "req.r7.d": "画面全体のUIテキスト・地図ラベル・通知メッセージまで動的に切替",
+            "req.secTitle": "🔒 セキュリティ",
+            "req.secBody": "<li>全SQLをPreparedStatementでバインド(SQLインジェクション対策)</li><li>作成者・権限レベルをセッション情報のみで判定</li><li>管理者機能はadmin_level別にアクセス制御</li>",
+            "req.perfTitle": "📱 性能/UX",
+            "req.perfBody": "<li>一覧・マイページのページング処理</li><li>モバイル専用レイアウト(767px以下)+ ドロワーメニュー</li><li>ダークモード(アカウント保存 or ローカル保存)</li>",
+
+            "arch.title": "システムアーキテクチャ(MVC2)", "arch.sub": "Command パターンによるリクエスト処理",
+            "arch.body": "コントローラーはURLパスからCommandを選び実行するのみで、SQLやビジネスロジックを持たない。Commandが戻り値(true/false)でforward(画面表示)かredirect(処理完了後の再読み込み防止)かを制御する。DTOは各層間のデータ受け渡し専用で、DAOのみがSQLを実行する。",
+
+            "db.title": "DB設計(ERD)", "db.sub": "Oracle 11g XE / 全10テーブル",
+            "db.p01": "<span class=\"tag\">素材 P01(任意)</span>実際のER図(画像)を挿入する場合はここに配置<br><span style=\"font-size:0.72rem;\">※ 下の表だけでも代替可能</span>",
+            "db.th1": "テーブル", "db.th3": "説明",
+            "db.d.members": "会員(ログインID=メール)。admin_level(0/1/2)で権限管理、dark_mode等の個人設定も保持",
+            "db.d.posts": "投稿。country/region/styleでタグ付け、view_cnt・like_cntを集計カラムとして保持",
+            "db.d.comments": "コメント。posts削除時にON DELETE CASCADE",
+            "db.d.likes": "いいね。複合キーで二重いいねをDBレベルで防止",
+            "db.d.scraps": "スクラップ(お気に入り)",
+            "db.d.logs": "投稿CRUD操作ログ(管理者画面)。削除済み投稿のタイトルも保持",
+            "db.d.notices": "管理者のお知らせ(全会員の通知ベルに表示)",
+            "db.d.notifs": "個人宛通知(コメント/いいね)。未読/既読管理",
+            "db.d.faqs": "よくある質問(フッターから閲覧、管理者が編集)",
+            "db.d.inquiries": "問い合わせ。公開/非公開(本人+管理者のみ)設定可",
+
+            "myfeature.title": "担当機能 — お知らせ・FAQ・お問い合わせ",
+            "myfeature.sub": "チームプロジェクト内での担当範囲(JSP〜Controller〜Command〜DAO〜DTOを一貫して実装)",
+            "myfeature.noticeTitle": "📢 お知らせ(Notice)",
+            "myfeature.noticeBody": "<li>管理者が作成・編集・削除</li><li>全会員の通知ベルに連動表示</li><li>一般会員向け公開一覧画面</li>",
+            "myfeature.faqBody": "<li>よくある質問の登録・修正・削除</li><li>フッターリンクから誰でも閲覧可能</li>",
+            "myfeature.inquiryTitle": "✉️ お問い合わせ(Inquiry)",
+            "myfeature.inquiryBody": "<li>会員による問い合わせ投稿</li><li>公開/非公開設定(本人+管理者のみ閲覧)</li>",
+            "myfeature.shotFaqCap": "サポートページ — よくある質問(アコーディオン表示)とお問い合わせフォームが同一画面に統合されている",
+            "myfeature.noticeListCap": "お知らせ一覧(一般会員向け公開画面)",
+            "myfeature.adminDashCap": "管理者ダッシュボード — お知らせ管理・FAQ管理カード",
+
+            "advanced.title": "個人開発パート(高度化)",
+            "advanced.sub": "チームプロジェクト終了後、ポートフォリオとして個人で設計・実装した拡張機能",
+            "advanced.i18nTitle": "🌐 多言語対応(韓国語 / 英語 / 日本語)",
+            "advanced.i18nBody": "ヘッダーの言語セレクターで即座に切替。静的テキストだけでなく、JSから動的に挿入されるコメント・通知メッセージ・地図ラベルまで全て翻訳対象。",
+            "advanced.i18nAi": "<b>AI活用:</b> 動的コンテンツ(AJAX挿入分)まで一貫して翻訳が当たる仕組みの設計をAIと相談しながら構築。",
+            "advanced.darkTitle": "🌓 ダークモード",
+            "advanced.darkBody": "CSS変数ベースの配色切替。ログイン時はアカウントに保存、未ログイン時はローカルストレージに保存し、次回訪問時も維持。",
+            "advanced.lightCap": "ライトモード", "advanced.darkCap": "ダークモード",
+            "advanced.adminTitle": "🛡️ 管理者権限レベル(0 / 1 / 2)",
+            "advanced.adminBody": "一般会員(0)・モデレーター(1)・管理者(2)の3段階。管理者のみが他会員の権限を変更可能、モデレーターは管理者の権限を変更不可、といった権限境界をバックエンド側でも二重に検証。",
+            "advanced.adminShotCap": "会員管理画面(権限レベル変更ドロップダウン・活動停止/解除ボタン) — 会員の個人情報(氏名・メールアドレス)部分はマスキング処理済み",
+            "advanced.mapTitle": "🗺️ インタラクティブ・ランキング地図",
+            "advanced.mapBody": "韓国/日本の地域別投稿数をSVGコロプレス地図で可視化。ホバーで人気投稿プレビュー、クリックで該当地域の一覧へ遷移。ピンチズーム・ドラッグパンにも対応し、ズームしていない状態ではページスクロールを優先するよう調整。",
+            "advanced.mapShotCap": "日本地域別ランキング地図 — 地域ホバー時に人気投稿3件をプレビュー表示",
+            "advanced.mapVideoPlaceholder": "<span class=\"tag\">素材 P08-video(任意)</span>拡大/ドラッグ操作のYouTube動画リンクをもらい次第、埋め込み予定",
+            "advanced.mapAi": "<b>AI活用:</b> SVGのviewBox座標変換によるズーム/パンの実装は、カリキュラムで学んでいなかった技術。AIから数式の原理(コンテンツ座標とスクリーン座標の変換)を教わりながら学習し、自ら実装・デバッグした。",
+            "advanced.mobileTitle": "📱 モバイル対応",
+            "advanced.mobileBody": "767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。",
+            "advanced.mobileShotCap": "767px以下で表示されるドロワー型ナビゲーション",
+
+            "trouble.title": "トラブルシューティング", "trouble.sub": "開発・運用中に実際に遭遇した問題と解決",
+            "trouble.i1.h": "CDNキャッシュにより、CSS/画像修正が本番に反映されない",
+            "trouble.i1.p": "<b>問題:</b> CloudflareのエッジキャッシュがCSS/SVG画像を最大4時間キャッシュし、修正してもすぐには反映されなかった。",
+            "trouble.i1.f": "<b>解決:</b> ファイルの最終更新時刻を取得し、<code>?v=&lt;timestamp&gt;</code>をクエリ文字列として付与。更新するたびにURL自体が変わるため、キャッシュを確実に無効化。",
+            "trouble.i2.h": "地図をドラッグすると、モバイルでページスクロールができなくなる",
+            "trouble.i2.p": Q1, "trouble.i2.f": F1,
+            "trouble.i3.h": "モバイル幅→PC幅にリサイズすると、ヘッダーメニュー全体が反応しなくなる",
+            "trouble.i3.p": "<b>問題:</b> モバイル幅でドロワーメニューを一度も開かずにPC幅までウィンドウを広げると、閉じた状態のまま<code>inert</code>属性がtrueで残り、見た目は通常のPCメニューなのにクリック・フォーカスが一切効かなくなっていた。",
+            "trouble.i3.f": "<b>解決:</b> リサイズのたびに開閉状態を無条件に再計算するよう修正し、双方向の画面幅変化に対応。",
+            "trouble.i4.h": "sqlplus経由の韓国語データ投入でUTF-8が化ける",
+            "trouble.i4.p": "<b>問題:</b> <code>NLS_LANG</code>を明示せずにsqlplusへ韓国語文字列を流し込むと、DB自体はAL32UTF8で正しく設定されているにもかかわらず、投入データだけが文字化け(U+FFFD)した。",
+            "trouble.i4.f": "<b>解決:</b> <code>NLS_LANG=AMERICAN_AMERICA.AL32UTF8</code>を明示してから実行するよう徹底。",
+
+            "teamai.title": "チーム協業方式とAI活用について", "teamai.sub": "正直に、具体的に示す",
+            "teamai.mineTitle": "✅ 自分が実装した範囲",
+            "teamai.mineP1": "<b>チームプロジェクト:</b> お知らせ・FAQ・お問い合わせ(JSP〜DTOまで一貫実装)",
+            "teamai.mineP2": "<b>個人開発(ポートフォリオ化):</b> 多言語対応・ダークモード・管理者権限レベル・インタラクティブランキング地図・モバイル対応 等、全体の高度化を自ら設計・実装",
+            "teamai.othersTitle": "👥 チームでの協業",
+            "teamai.othersP1": "4名のチームで、機能ドメインごとに各自が担当範囲を一貫実装し、最終的に統合。",
+            "teamai.othersP2": "アイデアの検討段階ではチームメンバーともフィードバックを交わしながら方向性を発展させた。",
+            "teamai.aiTitle": "🤖 AI活用について(正直に)",
+            "teamai.aiP1": "個人開発パートの実装では、AIコーディングツール(Claude Code)を積極的に活用した。特に、SVGベースのインタラクティブな地図やviewBox座標変換のように、<b>カリキュラムでは扱わなかった技術</b>については、AIから概念と実装の原理を教わりながら学習を重ね、自ら適用した。",
+            "teamai.aiP2": "<b>AIに代わりに作ってもらった成果物ではなく、AIを通じて技術を教わり、学習を並行しながら完成させた成果物</b>である点を明確にしておきたい。実装の意図・設計判断・デバッグは自ら行い、AIは「新しい技術を学ぶ相手」として活用した。",
+            "teamai.histTitle": "📦 プロジェクトの変遷",
+            "teamai.histBody": "本プロジェクトは、まずFirebase(Authentication / Firestore / Storage)を用いた反応型モックアップとしてチーム4名で共同開発を開始し、その後Oracle/JDBCへの本格移行を行った。初期モックアップは <a href=\"../demo/\" target=\"_blank\">こちら(チーム初期プロトタイプ)</a> から確認できる。",
+
+            "closing.title": "ご覧いただきありがとうございました",
+            "closing.body": "実際に動作するライブサイトで、全機能をお試しいただけます。",
+            "closing.btnLive": "ライブサイトを見る →", "closing.btnGithub": "GitHubで見る", "closing.btnHub": "ポートフォリオ・ハブに戻る",
+
+            "footer.text": "Trable Project &middot; お問い合わせ: (準備中) &middot; "
+        },
+        ko: {
+            "nav.overview": "개요", "nav.stack": "기술 스택", "nav.requirements": "요구사항 정의",
+            "nav.architecture": "아키텍처", "nav.db": "DB 설계", "nav.myfeature": "담당 기능",
+            "nav.advanced": "개인 개발 파트", "nav.trouble": "트러블슈팅",
+            "nav.teamai": "팀 & AI 활용", "nav.closing": "마무리",
+
+            "hero.lead": "여행 커뮤니티 웹 서비스 — “여행을 만들면, 새로운 이야기가 시작된다”<br>Java Servlet/JSP·Oracle·다국어 지원 실운영 서비스",
+            "hero.badge4": "다국어 지원(KO/EN/JA)",
+            "hero.metaTeamValue": "4명", "hero.metaRoleLabel": "역할 분담", "hero.metaRoleValue": "기능 단위",
+            "hero.metaStatusValue": "운영 중(실사용)",
+
+            "overview.title": "프로젝트 개요", "overview.sub": "개발 배경·목적·팀 구성",
+            "overview.bgTitle": "💡 개발 배경",
+            "overview.bgBody": "<li>한국·일본을 중심으로 한 여행 커뮤니티 서비스를, Servlet/JSP + Oracle이라는 프레임워크에 의존하지 않는 구성으로 처음부터 구현</li><li>처음에는 Firebase를 이용한 반응형 목업으로 시작했고, 실제 데이터베이스(Oracle/JDBC)로의 전환을 전제로 설계</li>",
+            "overview.goalTitle": "🎯 개발 목적",
+            "overview.goalBody": "<li>MVC2 패턴에 기반한 유지보수성 높은 구조 구현</li><li>회원 권한·다국어·지도 연동 통계 등, 실무 수준의 기능 설계 능력 증명</li><li>팀 개발 경험과 개인의 지속적인 서비스 확장 능력을 함께 제시</li>",
+            "overview.teamTitle": "👥 팀 구성(4명)",
+            "overview.teamBody": "화면 담당/백엔드 담당 식의 역할 분담이 아니라, <b>각 멤버가 특정 기능 도메인을 선택해 JSP~Controller~Command~DAO~DTO까지 혼자서 일관되게 구현</b>하고, 마지막에 팀 전체를 통합하는 방식을 채택.",
+            "overview.periodTitle": "📅 개발 기간 / 기술 환경",
+            "overview.periodBody": "<li>Java 17, Tomcat, Oracle 11g XE</li><li>Cloudflare Tunnel을 통해 실제 서비스로 공개(상시 운영)</li>",
+
+            "stack.title": "기술 스택", "stack.sub": "프레임워크에 의존하지 않고 Servlet/JSP 네이티브로 구현",
+            "stack.frontendLi2": "HTML / CSS(반응형)", "stack.backendLi2": "MVC2(Command 패턴)",
+            "stack.dbLi3": "윈도우 함수(지역별 통계)",
+
+            "req.title": "요구사항 정의", "req.sub": "기능 요구사항 / 비기능 요구사항",
+            "req.th1": "모듈", "req.th2": "기능", "req.th3": "내용",
+            "req.r1.m": "회원", "req.r1.f": "등록·로그인·마이페이지", "req.r1.d": "성별/국가/생일 등 프로필 항목, 공개 범위 설정, 관리자에 의한 권한 레벨(0/1/2) 관리",
+            "req.r2.m": "게시판", "req.r2.f": "게시글 CRUD·검색·페이징", "req.r2.d": "국가(KR/JP/ETC)·지역·여행 스타일(힐링/맛집/액티비티/쇼핑)에 따른 태그 지정, 이미지 업로드",
+            "req.r3.m": "댓글/좋아요/스크랩", "req.r3.f": "게시글에 대한 반응 기능", "req.r3.d": "댓글 등록·삭제, 좋아요, 스크랩(즐겨찾기), 카운터 실시간 반영",
+            "req.r4.m": "알림", "req.r4.f": "댓글·좋아요 알림", "req.r4.d": "내 게시글에 대한 반응을 벨 아이콘으로 알림, 안읽음 배지 표시",
+            "req.r5.m": "랭킹", "req.r5.f": "지역별 인기 게시글 시각화", "req.r5.d": "성별×국가별 인기 지역 랭킹 + SVG 지도 기반 색상 시각화(후술)",
+            "req.r6.m": "관리자 기능", "req.r6.f": "권한 관리·로그·공지사항·FAQ", "req.r6.d": "회원 권한 변경, 게시글 조작 로그, 공지사항/FAQ/문의 관리",
+            "req.r7.m": "다국어", "req.r7.f": "한국어/영어/일본어 전환", "req.r7.d": "화면 전체의 UI 텍스트·지도 라벨·알림 메시지까지 동적으로 전환",
+            "req.secTitle": "🔒 보안",
+            "req.secBody": "<li>모든 SQL을 PreparedStatement로 바인딩(SQL 인젝션 대응)</li><li>작성자·권한 레벨은 세션 정보만으로 판별</li><li>관리자 기능은 admin_level별로 접근 제어</li>",
+            "req.perfTitle": "📱 성능/UX",
+            "req.perfBody": "<li>목록·마이페이지 페이징 처리</li><li>모바일 전용 레이아웃(767px 이하) + 드로어 메뉴</li><li>다크모드(계정 저장 또는 로컬 저장)</li>",
+
+            "arch.title": "시스템 아키텍처(MVC2)", "arch.sub": "Command 패턴 기반 요청 처리",
+            "arch.body": "컨트롤러는 URL 경로에서 Command를 선택해 실행할 뿐, SQL이나 비즈니스 로직을 갖지 않는다. Command가 반환값(true/false)으로 forward(화면 표시)할지 redirect(처리 완료 후 새로고침 방지)할지를 제어한다. DTO는 각 계층 간 데이터 전달 전용이며, DAO만이 SQL을 실행한다.",
+
+            "db.title": "DB 설계(ERD)", "db.sub": "Oracle 11g XE / 전체 10개 테이블",
+            "db.p01": "<span class=\"tag\">소재 P01(선택)</span>실제 ERD(이미지)를 넣을 경우 여기에 배치<br><span style=\"font-size:0.72rem;\">※ 아래 표만으로도 대체 가능</span>",
+            "db.th1": "테이블", "db.th3": "설명",
+            "db.d.members": "회원(로그인 ID=이메일). admin_level(0/1/2)로 권한 관리, dark_mode 등 개인 설정도 보유",
+            "db.d.posts": "게시글. country/region/style로 태그 지정, view_cnt·like_cnt를 집계 컬럼으로 보유",
+            "db.d.comments": "댓글. posts 삭제 시 ON DELETE CASCADE",
+            "db.d.likes": "좋아요. 복합키로 중복 좋아요를 DB 레벨에서 방지",
+            "db.d.scraps": "스크랩(즐겨찾기)",
+            "db.d.logs": "게시글 CRUD 조작 로그(관리자 화면). 삭제된 게시글의 제목도 보유",
+            "db.d.notices": "관리자 공지사항(전체 회원의 알림벨에 표시)",
+            "db.d.notifs": "개인 대상 알림(댓글/좋아요). 읽음/안읽음 관리",
+            "db.d.faqs": "자주 묻는 질문(푸터에서 열람, 관리자가 편집)",
+            "db.d.inquiries": "문의. 공개/비공개(본인+관리자만) 설정 가능",
+
+            "myfeature.title": "담당 기능 — 공지사항·FAQ·문의",
+            "myfeature.sub": "팀 프로젝트 내에서의 담당 범위(JSP~Controller~Command~DAO~DTO를 일관되게 구현)",
+            "myfeature.noticeTitle": "📢 공지사항(Notice)",
+            "myfeature.noticeBody": "<li>관리자가 작성·수정·삭제</li><li>전체 회원의 알림벨에 연동 표시</li><li>일반 회원용 공개 목록 화면</li>",
+            "myfeature.faqBody": "<li>자주 묻는 질문 등록·수정·삭제</li><li>푸터 링크에서 누구나 열람 가능</li>",
+            "myfeature.inquiryTitle": "✉️ 문의(Inquiry)",
+            "myfeature.inquiryBody": "<li>회원의 문의 작성</li><li>공개/비공개 설정(본인+관리자만 열람)</li>",
+            "myfeature.shotFaqCap": "지원 페이지 — 자주 묻는 질문(아코디언 표시)과 문의 폼이 한 화면에 통합되어 있음",
+            "myfeature.noticeListCap": "공지사항 목록(일반 회원용 공개 화면)",
+            "myfeature.adminDashCap": "관리자 대시보드 — 공지사항 관리·FAQ 관리 카드",
+
+            "advanced.title": "개인 개발 파트(고도화)",
+            "advanced.sub": "팀 프로젝트 종료 후, 포트폴리오로 개인이 설계·구현한 확장 기능",
+            "advanced.i18nTitle": "🌐 다국어 지원(한국어 / 영어 / 일본어)",
+            "advanced.i18nBody": "헤더의 언어 선택기로 즉시 전환. 정적 텍스트뿐 아니라 JS로 동적으로 삽입되는 댓글·알림 메시지·지도 라벨까지 전부 번역 대상.",
+            "advanced.i18nAi": "<b>AI 활용:</b> 동적 콘텐츠(AJAX로 삽입되는 부분)까지 일관되게 번역이 적용되는 구조를 AI와 상의하며 설계.",
+            "advanced.darkTitle": "🌓 다크모드",
+            "advanced.darkBody": "CSS 변수 기반 색상 전환. 로그인 시 계정에 저장, 비로그인 시 로컬 스토리지에 저장해 다음 방문 때도 유지.",
+            "advanced.lightCap": "라이트모드", "advanced.darkCap": "다크모드",
+            "advanced.adminTitle": "🛡️ 관리자 권한 레벨(0 / 1 / 2)",
+            "advanced.adminBody": "일반 회원(0)·모더레이터(1)·관리자(2)의 3단계. 관리자만 다른 회원의 권한을 변경할 수 있고, 모더레이터는 관리자의 권한을 변경할 수 없다는 권한 경계를 백엔드 측에서도 이중으로 검증.",
+            "advanced.adminShotCap": "회원 관리 화면(권한 레벨 변경 드롭다운·활동정지/해제 버튼) — 회원 개인정보(닉네임·이메일) 부분은 마스킹 처리함",
+            "advanced.mapTitle": "🗺️ 인터랙티브 랭킹 지도",
+            "advanced.mapBody": "한국/일본의 지역별 게시글 수를 SVG 코로플레스 지도로 시각화. 호버 시 인기 게시글 미리보기, 클릭 시 해당 지역 목록으로 이동. 핀치 줌·드래그 팬도 지원하며, 확대하지 않은 상태에서는 페이지 스크롤을 우선하도록 조정.",
+            "advanced.mapShotCap": "일본 지역별 랭킹 지도 — 지역에 호버하면 인기 게시글 3건을 미리보기로 표시",
+            "advanced.mapVideoPlaceholder": "<span class=\"tag\">소재 P08-video(선택)</span>확대/드래그 조작 유튜브 영상 링크를 받는 대로 임베드 예정",
+            "advanced.mapAi": "<b>AI 활용:</b> SVG의 viewBox 좌표 변환을 이용한 줌/팬 구현은 커리큘럼에서 배우지 않았던 기술. AI로부터 수식의 원리(콘텐츠 좌표와 화면 좌표 간 변환)를 배우며 학습하고, 직접 구현·디버깅했다.",
+            "advanced.mobileTitle": "📱 모바일 대응",
+            "advanced.mobileBody": "767px 이하에서 드로어형 내비게이션으로 전환. 지도의 줌 기능과 페이지 스크롤이 충돌하지 않도록 터치 조작 폴백 처리도 구현.",
+            "advanced.mobileShotCap": "767px 이하에서 표시되는 드로어형 내비게이션",
+
+            "trouble.title": "트러블슈팅", "trouble.sub": "개발·운영 중 실제로 겪은 문제와 해결",
+            "trouble.i1.h": "CDN 캐시 때문에 CSS/이미지 수정이 운영 사이트에 반영되지 않음",
+            "trouble.i1.p": "<b>문제:</b> Cloudflare의 엣지 캐시가 CSS/SVG 이미지를 최대 4시간 캐싱해서, 수정해도 바로 반영되지 않았음.",
+            "trouble.i1.f": "<b>해결:</b> 파일의 마지막 수정 시각을 가져와 <code>?v=&lt;timestamp&gt;</code>를 쿼리 문자열로 붙임. 수정할 때마다 URL 자체가 바뀌므로 캐시를 확실하게 무효화.",
+            "trouble.i2.h": "지도를 드래그하면 모바일에서 페이지 스크롤이 안 되는 문제",
+            "trouble.i2.p": Q1K, "trouble.i2.f": F1K,
+            "trouble.i3.h": "모바일 폭→PC 폭으로 리사이즈하면 헤더 메뉴 전체가 반응하지 않는 문제",
+            "trouble.i3.p": "<b>문제:</b> 모바일 폭에서 드로어 메뉴를 한 번도 열지 않은 채 PC 폭까지 창을 넓히면, 닫힌 상태 그대로 <code>inert</code> 속성이 true로 남아서, 겉보기엔 평범한 PC 메뉴인데 클릭·포커스가 전혀 먹히지 않게 됨.",
+            "trouble.i3.f": "<b>해결:</b> 리사이즈할 때마다 열림/닫힘 상태를 무조건 다시 계산하도록 수정해서, 양방향 화면 폭 변화에 대응.",
+            "trouble.i4.h": "sqlplus를 통한 한국어 데이터 입력 시 UTF-8이 깨지는 문제",
+            "trouble.i4.p": "<b>문제:</b> <code>NLS_LANG</code>을 명시하지 않고 sqlplus로 한국어 문자열을 넣으면, DB 자체는 AL32UTF8로 올바르게 설정돼 있는데도 입력한 데이터만 깨짐(U+FFFD) 현상이 발생.",
+            "trouble.i4.f": "<b>해결:</b> <code>NLS_LANG=AMERICAN_AMERICA.AL32UTF8</code>을 명시한 뒤 실행하도록 철저히 함.",
+
+            "teamai.title": "팀 협업 방식과 AI 활용에 대하여", "teamai.sub": "정직하고 구체적으로 밝힘",
+            "teamai.mineTitle": "✅ 제가 직접 구현한 범위",
+            "teamai.mineP1": "<b>팀 프로젝트:</b> 공지사항·FAQ·문의(JSP~DTO까지 일관 구현)",
+            "teamai.mineP2": "<b>개인 개발(포트폴리오화):</b> 다국어 지원·다크모드·관리자 권한 레벨·인터랙티브 랭킹 지도·모바일 대응 등, 전체 고도화를 직접 설계·구현",
+            "teamai.othersTitle": "👥 팀에서의 협업",
+            "teamai.othersP1": "4명의 팀에서 기능 도메인별로 각자 담당 범위를 일관되게 구현하고, 최종적으로 통합.",
+            "teamai.othersP2": "아이디어 검토 단계에서는 팀원들과도 피드백을 주고받으며 방향성을 발전시켰다.",
+            "teamai.aiTitle": "🤖 AI 활용에 대하여(솔직하게)",
+            "teamai.aiP1": "개인 개발 파트를 구현하면서 AI 코딩 도구(Claude Code)를 적극적으로 활용했다. 특히 SVG 기반 인터랙티브 지도나 viewBox 좌표 변환처럼, <b>커리큘럼에서 다루지 않았던 기술</b>에 대해서는 AI로부터 개념과 구현 원리를 배우며 학습을 거듭해 직접 적용했다.",
+            "teamai.aiP2": "<b>AI가 대신 만들어준 결과물이 아니라, AI를 통해 기술을 배우고 학습을 병행하며 완성한 결과물</b>이라는 점을 분명히 밝히고 싶다. 구현 의도·설계 판단·디버깅은 직접 수행했으며, AI는 “새로운 기술을 배우는 상대”로 활용했다.",
+            "teamai.histTitle": "📦 프로젝트의 변천",
+            "teamai.histBody": "본 프로젝트는 먼저 Firebase(Authentication / Firestore / Storage)를 이용한 반응형 목업으로 4명의 팀이 공동 개발을 시작했고, 이후 Oracle/JDBC로 본격 전환했다. 초기 목업은 <a href=\"../demo/\" target=\"_blank\">여기(팀 초기 프로토타입)</a>에서 확인할 수 있다.",
+
+            "closing.title": "봐주셔서 감사합니다",
+            "closing.body": "실제로 동작하는 라이브 사이트에서 전체 기능을 직접 사용해보실 수 있습니다.",
+            "closing.btnLive": "라이브 사이트 보기 →", "closing.btnGithub": "GitHub에서 보기", "closing.btnHub": "포트폴리오 허브로 돌아가기",
+
+            "footer.text": "Trable Project &middot; 문의: (준비 중) &middot; "
+        }
+    };
+
+    var TITLE = { ja: "Trable プロジェクト発表資料", ko: "Trable 프로젝트 발표자료" };
+
+    function apply(lang) {
+        document.documentElement.lang = lang;
+        document.title = TITLE[lang];
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n");
+            var val = DICT[lang] && DICT[lang][key];
+            if (val !== undefined) {
+                el.innerHTML = val;
+            }
+        });
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
+    var lang = (saved === "ko" || saved === "ja") ? saved : "ja";
+
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            lang = btn.dataset.lang;
+            try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignore */ }
+            apply(lang);
+        });
+    });
+
+    apply(lang);
+
+})();
+</script>
 
 </body>
 </html>

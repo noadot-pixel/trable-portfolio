@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trable 프로젝트 포트폴리오</title>
+<title>Trable プロジェクトポートフォリオ</title>
 <style>
     :root {
         --navy: #0c2f5d;
@@ -20,6 +20,30 @@
         background: var(--bg);
         color: var(--text);
     }
+    .lang-switch {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        display: flex;
+        gap: 4px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 4px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        z-index: 10;
+    }
+    .lang-btn {
+        border: none;
+        background: transparent;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--muted);
+        cursor: pointer;
+    }
+    .lang-btn.active { background: var(--blue); color: #fff; }
     .wrap {
         max-width: 880px;
         margin: 0 auto;
@@ -104,46 +128,47 @@
 </head>
 <body>
 
+<div class="lang-switch">
+    <button type="button" class="lang-btn" data-lang="ko">한국어</button>
+    <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+</div>
+
 <div class="wrap">
 
     <header>
         <h1>Trable</h1>
-        <p>여행 커뮤니티 웹 서비스 · Java Servlet/JSP, Oracle, Firebase</p>
-        <p>プロジェクトポートフォリオ</p>
+        <p data-i18n="hub.tagline">旅行コミュニティWebサービス・プロジェクトポートフォリオ</p>
     </header>
 
     <div class="cards">
 
         <a class="card live" href="https://trable.elytext.com" target="_blank" rel="noopener">
-            <span class="tag">LIVE · 실제 운영 중</span>
+            <span class="tag" data-i18n="hub.live.tag">LIVE・本番稼働中</span>
             <span class="arrow">→</span>
-            <h2>라이브 사이트 바로가기</h2>
-            <p>
-                Java Servlet/JSP + Oracle로 실제 서비스되고 있는 운영 버전입니다. 회원가입 후
-                게시글 작성, 랭킹 지도, 다국어(한/영/일), 다크모드 등 전체 기능을 직접 사용해볼 수 있습니다.<br>
-                実際に稼働しているJava/Oracleベースの本番サイトです。会員登録して全機能をお試しいただけます。
+            <h2 data-i18n="hub.live.title">ライブサイトへ</h2>
+            <p data-i18n="hub.live.desc">
+                Java Servlet/JSP + Oracleで実際に稼働している本番バージョンです。会員登録後、投稿作成・ランキング地図・
+                多言語(韓/英/日)・ダークモードなど全機能を直接お試しいただけます。
             </p>
         </a>
 
         <a class="card" href="presentation/">
-            <span class="tag">발표 자료</span>
+            <span class="tag" data-i18n="hub.pres.tag">発表資料</span>
             <span class="arrow">→</span>
-            <h2>프로젝트 발표 자료</h2>
-            <p>
-                요구사항 분석, 시스템 아키텍처, DB 설계(ERD), 담당 기능, 트러블슈팅, AI 활용 내역까지
-                정리한 프레젠테이션입니다.<br>
-                要件定義・アーキテクチャ・DB設計・担当機能・トラブルシューティング・AI活用内容をまとめた発表資料です。
+            <h2 data-i18n="hub.pres.title">プロジェクト発表資料</h2>
+            <p data-i18n="hub.pres.desc">
+                要件定義、システムアーキテクチャ、DB設計(ERD)、担当機能、トラブルシューティング、AI活用内容までまとめた
+                プレゼンテーションです。
             </p>
         </a>
 
         <a class="card" href="demo/">
-            <span class="tag">초기 프로토타입</span>
+            <span class="tag" data-i18n="hub.demo.tag">初期プロトタイプ</span>
             <span class="arrow">→</span>
-            <h2>팀 초기 Firebase 목업 데모</h2>
-            <p>
-                Oracle/JSP로 전환하기 전, 팀이 먼저 Firebase로 만들었던 반응형 목업 버전입니다.
-                프로젝트가 어떻게 발전해왔는지 과정을 보여드립니다.<br>
-                Oracle/JSPへ移行する前、チームが最初にFirebaseで作成したモックアップ版です。プロジェクトの発展過程をご覧いただけます。
+            <h2 data-i18n="hub.demo.title">チーム初期Firebaseモックアップデモ</h2>
+            <p data-i18n="hub.demo.desc">
+                Oracle/JSPへ移行する前、チームが最初にFirebaseで作成した反応型モックアップ版です。プロジェクトがどのように
+                発展してきたか、その過程をご覧いただけます。
             </p>
         </a>
 
@@ -154,6 +179,72 @@
     </footer>
 
 </div>
+
+<script>
+(function () {
+
+    var LANG_KEY = "trable-portfolio-lang";
+
+    var DICT = {
+        ja: {
+            "hub.tagline": "旅行コミュニティWebサービス・プロジェクトポートフォリオ",
+            "hub.live.tag": "LIVE・本番稼働中",
+            "hub.live.title": "ライブサイトへ",
+            "hub.live.desc": "Java Servlet/JSP + Oracleで実際に稼働している本番バージョンです。会員登録後、投稿作成・ランキング地図・多言語(韓/英/日)・ダークモードなど全機能を直接お試しいただけます。",
+            "hub.pres.tag": "発表資料",
+            "hub.pres.title": "プロジェクト発表資料",
+            "hub.pres.desc": "要件定義、システムアーキテクチャ、DB設計(ERD)、担当機能、トラブルシューティング、AI活用内容までまとめたプレゼンテーションです。",
+            "hub.demo.tag": "初期プロトタイプ",
+            "hub.demo.title": "チーム初期Firebaseモックアップデモ",
+            "hub.demo.desc": "Oracle/JSPへ移行する前、チームが最初にFirebaseで作成した反応型モックアップ版です。プロジェクトがどのように発展してきたか、その過程をご覧いただけます。"
+        },
+        ko: {
+            "hub.tagline": "여행 커뮤니티 웹 서비스 · 프로젝트 포트폴리오",
+            "hub.live.tag": "LIVE · 실제 운영 중",
+            "hub.live.title": "라이브 사이트 바로가기",
+            "hub.live.desc": "Java Servlet/JSP + Oracle로 실제 서비스되고 있는 운영 버전입니다. 회원가입 후 게시글 작성, 랭킹 지도, 다국어(한/영/일), 다크모드 등 전체 기능을 직접 사용해볼 수 있습니다.",
+            "hub.pres.tag": "발표 자료",
+            "hub.pres.title": "프로젝트 발표 자료",
+            "hub.pres.desc": "요구사항 분석, 시스템 아키텍처, DB 설계(ERD), 담당 기능, 트러블슈팅, AI 활용 내역까지 정리한 프레젠테이션입니다.",
+            "hub.demo.tag": "초기 프로토타입",
+            "hub.demo.title": "팀 초기 Firebase 목업 데모",
+            "hub.demo.desc": "Oracle/JSP로 전환하기 전, 팀이 먼저 Firebase로 만들었던 반응형 목업 버전입니다. 프로젝트가 어떻게 발전해왔는지 과정을 보여드립니다."
+        }
+    };
+
+    var TITLE = { ja: "Trable プロジェクトポートフォリオ", ko: "Trable 프로젝트 포트폴리오" };
+
+    function apply(lang) {
+        document.documentElement.lang = lang;
+        document.title = TITLE[lang];
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var key = el.getAttribute("data-i18n");
+            var val = DICT[lang] && DICT[lang][key];
+            if (val !== undefined) {
+                el.textContent = val;
+            }
+        });
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+            btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(LANG_KEY); } catch (e) { /* ignore */ }
+    var lang = (saved === "ko" || saved === "ja") ? saved : "ja";
+
+    document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            lang = btn.dataset.lang;
+            try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignore */ }
+            apply(lang);
+        });
+    });
+
+    apply(lang);
+
+})();
+</script>
 
 </body>
 </html>

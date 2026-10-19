@@ -1,0 +1,57 @@
+<%@ page pageEncoding="UTF-8" %>
+<%--
+    공통 헤더. 사용하는 페이지는 include 전에 아래 변수를 선언해야 한다.
+
+    String contextPath = request.getContextPath();
+    String activeNav = "home"; // "home" | "posts" | "" (해당 없음)
+--%>
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="<%= contextPath %>/index.jsp"
+           class="top-logo">
+
+            <img src="<%= contextPath %>/images/logo.png"
+                 alt="여행만들기 로고">
+        </a>
+
+        <nav class="navigation">
+
+            <a href="<%= contextPath %>/index.jsp"
+               class="<%= "home".equals(activeNav) ? "active" : "" %>">
+                홈
+            </a>
+
+             <a href="<%= contextPath %>/posts.jsp">
+                커뮤니티
+            </a>
+
+        </nav>
+
+        <div class="member-menu">
+
+            <a href="<%= contextPath %>/posts/write.jsp"
+               class="write-link">
+                글쓰기
+            </a>
+
+            <span id="memberMenu">
+
+                <a href="<%= contextPath %>/auth/login.jsp">
+                    로그인
+                </a>
+
+                <a href="<%= contextPath %>/auth/signup.jsp"
+                   class="join-button">
+                    회원가입
+                </a>
+
+            </span>
+
+        </div>
+
+    </div>
+
+</header>

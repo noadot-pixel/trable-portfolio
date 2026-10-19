@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!--
+    GitHub Pages용 정적 사본입니다. (자동 생성 파일: 직접 고치지 마세요)
+    원본은 main/webapp/auth/signup.jsp 이며, 원본을 고친 뒤 저장소 루트에서
+    `python tools/build-static.py` 를 실행하면 이 파일이 다시 만들어집니다.
+-->
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>회원가입 - 여행만들기</title>
+
+    <link rel="stylesheet"
+          href="../main/webapp/css/common.css">
+
+    <link rel="stylesheet"
+          href="../main/webapp/css/mystyle.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="../index.html"
+           class="top-logo">
+
+            <img src="../main/webapp/images/logo.png"
+                 alt="여행만들기 로고">
+        </a>
+
+        <nav class="navigation">
+
+            <a href="../index.html"
+               class="">
+                홈
+            </a>
+
+             <a href="../posts.html">
+                커뮤니티
+            </a>
+
+        </nav>
+
+        <div class="member-menu">
+
+            <a href="../posts/write.html"
+               class="write-link">
+                글쓰기
+            </a>
+
+            <span id="memberMenu">
+
+                <a href="../auth/login.html">
+                    로그인
+                </a>
+
+                <a href="../auth/signup.html"
+                   class="join-button">
+                    회원가입
+                </a>
+
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+    <!-- =========================
+         회원가입 (목업)
+         실제 계정 생성/DB 저장은 하지 않고, 입력 검사 후 "가입 완료" alert만 띄운 뒤
+         로그인 화면으로 이동한다. 추후 Oracle JDBC 기반 회원 테이블로 교체될 예정.
+    ========================== -->
+
+    <section class="auth-section">
+
+        <div class="auth-layout">
+
+            <div class="auth-visual">
+                <div class="auth-visual-overlay"></div>
+
+                <div class="auth-visual-content">
+                    <p class="auth-kicker">
+                        TRAVEL MAKER
+                    </p>
+
+                    <h1>
+                        여행만들기와 함께<br>
+                        첫 이야기를 시작해요
+                    </h1>
+
+                    <p>
+                        가입하면 여행 이야기를 작성하고<br>
+                        나만의 기록을 남길 수 있어요.
+                    </p>
+
+                    <div class="auth-visual-tags" aria-hidden="true">
+                        <span>#서울</span>
+                        <span>#도쿄</span>
+                        <span>#제주</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-panel">
+
+                <div class="auth-box">
+
+                    <div class="auth-title-area">
+                        <span class="auth-title-mark">✈</span>
+
+                        <h2>회원가입</h2>
+
+                        <p class="auth-description">
+                            기본 정보를 입력하고 여행만들기를 시작하세요.
+                        </p>
+                    </div>
+
+                    <form id="signupForm">
+
+                        <div class="auth-field">
+                            <label for="signupNickname">
+                                닉네임
+                            </label>
+
+                            <input type="text"
+                                   id="signupNickname"
+                                   name="signupNickname"
+                                   placeholder="사용할 닉네임을 입력해 주세요"
+                                   autocomplete="nickname">
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="signupEmail">
+                                이메일
+                            </label>
+
+                            <input type="email"
+                                   id="signupEmail"
+                                   name="signupEmail"
+                                   placeholder="이메일을 입력해 주세요"
+                                   autocomplete="username">
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="signupPassword">
+                                비밀번호
+                            </label>
+
+                            <input type="password"
+                                   id="signupPassword"
+                                   name="signupPassword"
+                                   placeholder="6자 이상 입력해 주세요"
+                                   autocomplete="new-password">
+                        </div>
+
+                        <div class="auth-field">
+                            <label for="signupPasswordConfirm">
+                                비밀번호 확인
+                            </label>
+
+                            <input type="password"
+                                   id="signupPasswordConfirm"
+                                   name="signupPasswordConfirm"
+                                   placeholder="비밀번호를 다시 입력해 주세요"
+                                   autocomplete="new-password">
+                        </div>
+
+                        <button type="submit"
+                                class="auth-submit">
+                            회원가입
+                        </button>
+
+                    </form>
+
+                    <div class="auth-divider">
+                        <span>TRAVEL COMMUNITY</span>
+                    </div>
+
+                    <div class="auth-links">
+                        <a href="../auth/login.html">로그인</a>
+                        <span aria-hidden="true"></span>
+                        <a href="../index.html">메인으로 돌아가기</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-logo-area">
+
+            <a href="../index.html"
+               class="bottom-logo">
+
+                <img src="../main/webapp/images/logo.png"
+                     alt="여행만들기 로고">
+            </a>
+
+            <p>
+                함께 만드는, 더 넓은 여행의 세상
+            </p>
+
+        </div>
+
+        <div class="footer-menu">
+
+            <strong>여행만들기</strong>
+
+            <a href="#" class="footer-placeholder-link" data-message="서비스 소개 페이지는 준비 중입니다.">소개</a>
+            <a href="#" class="footer-placeholder-link" data-message="이용약관 페이지는 준비 중입니다.">이용약관</a>
+            <a href="#" class="footer-placeholder-link" data-message="개인정보처리방침 페이지는 준비 중입니다.">개인정보처리방침</a>
+
+        </div>
+
+        <div class="footer-menu">
+
+            <strong>고객지원</strong>
+
+            <a href="#" class="footer-placeholder-link" data-message="등록된 공지사항이 없습니다.">공지사항</a>
+            <a href="#" class="footer-placeholder-link" data-message="자주 묻는 질문 페이지는 준비 중입니다.">자주 묻는 질문</a>
+            <a href="#" class="footer-placeholder-link" data-message="문의하기 기능은 준비 중입니다. 급한 문의는 이메일로 남겨주세요.">문의하기</a>
+
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 여행만들기. All rights reserved.
+    </p>
+
+</footer>
+
+<script>
+    document.querySelectorAll(".footer-placeholder-link").forEach(function (link) {
+
+        link.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            alert(link.dataset.message);
+
+        });
+
+    });
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-storage-compat.js"></script>
+
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAythcpdfR-tuSQEzFkw8EKRwNEfnC7bJE",
+        authDomain: "ai2gi-project-01.firebaseapp.com",
+        projectId: "ai2gi-project-01",
+        storageBucket: "ai2gi-project-01.firebasestorage.app",
+        messagingSenderId: "34655357322",
+        appId: "1:34655357322:web:d7f146b0ccd5bc15f3a073"
+    };
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+
+    const authReadyStartedAt = performance.now();
+
+    window.authReady = new Promise(function (resolve) {
+
+        const unsubscribe = firebase.auth().onAuthStateChanged(function (user) {
+
+            unsubscribe();
+
+            console.log(
+                "[authReady] 세션 복원 완료 ("
+                + Math.round(performance.now() - authReadyStartedAt) + "ms), user ="
+                + (user ? " " + user.uid : " null")
+            );
+
+            resolve(user);
+
+        });
+
+    });
+</script>
+
+<script src="../main/webapp/js/mock-auth.js"></script>
+
+<script>
+    function escapeMenuText(text) {
+
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    (async function renderMemberMenu() {
+
+        const memberMenu =
+            document.getElementById("memberMenu");
+
+        const currentUser =
+            mockAuth.getCurrentUser();
+
+        if (!memberMenu || !currentUser) {
+            return;
+        }
+
+        /*
+         * 로그인 정보의 닉네임은 이 브라우저(localStorage)에만 저장돼 있어서,
+         * 다른 곳에서 닉네임을 바꿨다면 users 문서의 최신 닉네임으로 맞춘다.
+         */
+
+        try {
+
+            const profileDoc = await firebase.firestore()
+                .collection("users").doc(currentUser.id).get();
+
+            const savedNickname =
+                profileDoc.exists ? profileDoc.data().nickname : "";
+
+            if (savedNickname && savedNickname !== currentUser.nickname) {
+                currentUser.nickname = savedNickname;
+                mockAuth.login(currentUser);
+            }
+
+        } catch (error) {
+            console.warn("닉네임을 동기화하지 못했습니다(무시):", error.code || error.message);
+        }
+
+        const isAdmin =
+            await mockAuth.isAdmin();
+
+        const adminLinkHtml = isAdmin
+            ? '<a href="../admin/index.html">관리자</a>'
+            : '';
+
+        memberMenu.innerHTML =
+            adminLinkHtml
+            + '<a href="../mypage.html">마이페이지</a>'
+            + '<span class="member-nickname">'
+            + escapeMenuText(currentUser.nickname)
+            + '님</span>'
+            + '<a href="#" id="logoutLink">로그아웃</a>';
+
+        document.getElementById("logoutLink")
+            .addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                mockAuth.logout();
+
+                location.reload();
+
+            });
+
+    })();
+</script>
+
+<script>
+    /*
+     * 이미 로그인되어 있으면 메인으로 바로 이동
+     */
+
+    if (mockAuth.isLoggedIn()) {
+        location.href = "../index.html";
+    }
+</script>
+
+<script>
+    /*
+     * 회원가입 목업: 입력값만 검사하고, 가입이 완료된 것처럼 alert를 띄운 뒤
+     * 로그인 화면으로 이동한다. (Firebase 계정 생성, DB 기록은 하지 않는다.)
+     */
+
+    const signupForm =
+        document.getElementById("signupForm");
+
+    const nicknameInput =
+        document.getElementById("signupNickname");
+
+    const emailInput =
+        document.getElementById("signupEmail");
+
+    const passwordInput =
+        document.getElementById("signupPassword");
+
+    const passwordConfirmInput =
+        document.getElementById("signupPasswordConfirm");
+
+    signupForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const nickname =
+            nicknameInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const password =
+            passwordInput.value;
+
+        const passwordConfirm =
+            passwordConfirmInput.value;
+
+        if (nickname === "" || email === "" || password === "" || passwordConfirm === "") {
+
+            alert("모든 항목을 입력해 주세요.");
+
+            return;
+        }
+
+        if (password !== passwordConfirm) {
+
+            alert("비밀번호가 서로 일치하지 않습니다.");
+
+            return;
+        }
+
+        if (password.length < 6) {
+
+            alert("비밀번호는 6자 이상이어야 합니다.");
+
+            return;
+        }
+
+        alert("회원가입이 완료되었습니다. 로그인해 주세요.");
+
+        location.href = "../auth/login.html";
+
+    });
+</script>
+
+</body>
+</html>

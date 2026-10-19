@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trable 프로젝트 포트폴리오</title>
+<style>
+    :root {
+        --navy: #0c2f5d;
+        --blue: #2563eb;
+        --text: #334155;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Noto Sans JP", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+    }
+    .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+    }
+    header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    header h1 {
+        font-size: 2.25rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin: 0 0 8px;
+    }
+    header p {
+        color: var(--muted);
+        font-size: 1rem;
+        margin: 4px 0;
+    }
+    .cards {
+        display: grid;
+        gap: 20px;
+    }
+    .card {
+        display: block;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px 28px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(37,99,235,0.15);
+        border-color: var(--blue);
+    }
+    .card .tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: .04em;
+        color: var(--blue);
+        background: #eff6ff;
+        border: 1px solid #dbeafe;
+        padding: 3px 10px;
+        border-radius: 999px;
+        margin-bottom: 10px;
+    }
+    .card.live .tag {
+        color: #059669;
+        background: #ecfdf5;
+        border-color: #d1fae5;
+    }
+    .card h2 {
+        margin: 0 0 8px;
+        font-size: 1.35rem;
+        color: var(--navy);
+    }
+    .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+    .card .arrow {
+        float: right;
+        color: var(--blue);
+        font-size: 1.1rem;
+    }
+    footer {
+        text-align: center;
+        margin-top: 56px;
+        color: var(--muted);
+        font-size: 0.82rem;
+    }
+    footer a { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <header>
+        <h1>Trable</h1>
+        <p>여행 커뮤니티 웹 서비스 · Java Servlet/JSP, Oracle, Firebase</p>
+        <p>プロジェクトポートフォリオ</p>
+    </header>
+
+    <div class="cards">
+
+        <a class="card live" href="https://trable.elytext.com" target="_blank" rel="noopener">
+            <span class="tag">LIVE · 실제 운영 중</span>
+            <span class="arrow">→</span>
+            <h2>라이브 사이트 바로가기</h2>
+            <p>
+                Java Servlet/JSP + Oracle로 실제 서비스되고 있는 운영 버전입니다. 회원가입 후
+                게시글 작성, 랭킹 지도, 다국어(한/영/일), 다크모드 등 전체 기능을 직접 사용해볼 수 있습니다.<br>
+                実際に稼働しているJava/Oracleベースの本番サイトです。会員登録して全機能をお試しいただけます。
+            </p>
+        </a>
+
+        <a class="card" href="presentation/">
+            <span class="tag">발표 자료</span>
+            <span class="arrow">→</span>
+            <h2>프로젝트 발표 자료</h2>
+            <p>
+                요구사항 분석, 시스템 아키텍처, DB 설계(ERD), 담당 기능, 트러블슈팅, AI 활용 내역까지
+                정리한 프레젠테이션입니다.<br>
+                要件定義・アーキテクチャ・DB設計・担当機能・トラブルシューティング・AI活用内容をまとめた発表資料です。
+            </p>
+        </a>
+
+        <a class="card" href="demo/">
+            <span class="tag">초기 프로토타입</span>
+            <span class="arrow">→</span>
+            <h2>팀 초기 Firebase 목업 데모</h2>
+            <p>
+                Oracle/JSP로 전환하기 전, 팀이 먼저 Firebase로 만들었던 반응형 목업 버전입니다.
+                프로젝트가 어떻게 발전해왔는지 과정을 보여드립니다.<br>
+                Oracle/JSPへ移行する前、チームが最初にFirebaseで作成したモックアップ版です。プロジェクトの発展過程をご覧いただけます。
+            </p>
+        </a>
+
+    </div>
+
+    <footer>
+        Trable Project &middot; <a href="https://github.com/noadot-pixel/trable-portfolio">GitHub</a>
+    </footer>
+
+</div>
+
+</body>
+</html>

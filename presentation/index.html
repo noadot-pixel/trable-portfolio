@@ -214,6 +214,41 @@
         margin-bottom: 6px;
     }
 
+    .shot-block { margin: 18px 0; }
+    .shot {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 6px 16px -4px rgba(15,23,42,0.12);
+    }
+    .shot-cap {
+        text-align: center;
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 8px;
+    }
+    .shot-grid {
+        display: grid;
+        gap: 14px;
+        margin: 18px 0;
+    }
+    .shot-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .shot-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 760px) {
+        .shot-grid.cols-3, .shot-grid.cols-2 { grid-template-columns: 1fr; }
+    }
+    .shot-grid figure { margin: 0; }
+    .shot-grid figcaption {
+        text-align: center;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-top: 8px;
+    }
+    .mobile-shot-wrap { max-width: 280px; margin: 18px auto; }
+
     /* ---- AI note ---- */
     .ai-note {
         display: flex;
@@ -534,14 +569,20 @@
             </div>
         </div>
 
-        <div class="media-box" style="aspect-ratio:16/9;" data-asset="P02">
-            <div><span class="tag">素材 P02</span>FAQ一覧画面のスクリーンショット(PC)</div>
+        <div class="shot-block">
+            <img class="shot" src="assets/p02-support-faq.jpg" alt="よくある質問・お問い合わせ画面">
+            <p class="shot-cap">サポートページ — よくある質問(アコーディオン表示)とお問い合わせフォームが同一画面に統合されている</p>
         </div>
-        <div class="media-box" style="aspect-ratio:16/9;" data-asset="P03">
-            <div><span class="tag">素材 P03</span>お知らせ一覧 or 管理者編集画面のスクリーンショット</div>
-        </div>
-        <div class="media-box" style="aspect-ratio:16/9;" data-asset="P04">
-            <div><span class="tag">素材 P04</span>お問い合わせ作成/詳細画面のスクリーンショット(非公開バッジが見える状態が望ましい)</div>
+
+        <div class="shot-grid cols-2">
+            <figure>
+                <img class="shot" src="assets/p03a-notice-list.jpg" alt="お知らせ一覧画面">
+                <figcaption>お知らせ一覧(一般会員向け公開画面)</figcaption>
+            </figure>
+            <figure>
+                <img class="shot" src="assets/p03b-admin-dashboard.jpg" alt="管理者ダッシュボード画面">
+                <figcaption>管理者ダッシュボード — お知らせ管理・FAQ管理カード</figcaption>
+            </figure>
         </div>
     </div>
 </section>
@@ -556,8 +597,19 @@
         <div class="card" style="margin-bottom:28px;">
             <h3>🌐 多言語対応(韓国語 / 英語 / 日本語)</h3>
             <p>ヘッダーの言語セレクターで即座に切替。静的テキストだけでなく、JSから動的に挿入されるコメント・通知メッセージ・地図ラベルまで全て翻訳対象。</p>
-            <div class="media-box" style="aspect-ratio:21/9;" data-asset="P05">
-                <div><span class="tag">素材 P05</span>同一画面の韓国語/英語/日本語版 3枚(同じ構図で言語だけ切替)</div>
+            <div class="shot-grid cols-3">
+                <figure>
+                    <img class="shot" src="assets/p05-ko.jpg" alt="韓国語UI">
+                    <figcaption>한국어</figcaption>
+                </figure>
+                <figure>
+                    <img class="shot" src="assets/p05-en.jpg" alt="英語UI">
+                    <figcaption>English</figcaption>
+                </figure>
+                <figure>
+                    <img class="shot" src="assets/p05-ja.jpg" alt="日本語UI">
+                    <figcaption>日本語</figcaption>
+                </figure>
             </div>
             <div class="ai-note"><span>🤖</span><div><b>AI活用:</b> 動的コンテンツ(AJAX挿入分)まで一貫して翻訳が当たる仕組みの設計をAIと相談しながら構築。</div></div>
         </div>
@@ -565,24 +617,43 @@
         <div class="card" style="margin-bottom:28px;">
             <h3>🌓 ダークモード</h3>
             <p>CSS変数ベースの配色切替。ログイン時はアカウントに保存、未ログイン時はローカルストレージに保存し、次回訪問時も維持。</p>
-            <div class="media-box" style="aspect-ratio:21/9;" data-asset="P06">
-                <div><span class="tag">素材 P06</span>同一画面のライトモード/ダークモード比較(2枚 or 1枚に合成)</div>
+            <div class="shot-grid cols-2">
+                <figure>
+                    <img class="shot" src="assets/p06-light.jpg" alt="ライトモード">
+                    <figcaption>ライトモード</figcaption>
+                </figure>
+                <figure>
+                    <img class="shot" src="assets/p06-dark.jpg" alt="ダークモード">
+                    <figcaption>ダークモード</figcaption>
+                </figure>
             </div>
         </div>
 
         <div class="card" style="margin-bottom:28px;">
             <h3>🛡️ 管理者権限レベル(0 / 1 / 2)</h3>
             <p>一般会員(0)・モデレーター(1)・管理者(2)の3段階。管理者のみが他会員の権限を変更可能、モデレーターは管理者の権限を変更不可、といった権限境界をバックエンド側でも二重に検証。</p>
-            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P07">
-                <div><span class="tag">素材 P07</span>管理者の会員管理画面(権限レベル変更UIが見える状態)</div>
+            <div class="shot-block">
+                <img class="shot" src="assets/p07-admin-members.jpg" alt="管理者の会員管理画面">
+                <p class="shot-cap">会員管理画面(権限レベル変更ドロップダウン・活動停止/解除ボタン) — 会員の個人情報(氏名・メールアドレス)部分はマスキング処理済み</p>
             </div>
         </div>
 
         <div class="card" style="margin-bottom:28px;">
             <h3>🗺️ インタラクティブ・ランキング地図</h3>
             <p>韓国/日本の地域別投稿数をSVGコロプレス地図で可視化。ホバーで人気投稿プレビュー、クリックで該当地域の一覧へ遷移。ピンチズーム・ドラッグパンにも対応し、ズームしていない状態ではページスクロールを優先するよう調整。</p>
-            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P08">
-                <div><span class="tag">素材 P08</span>ランキングページの地図スクリーンショット、または確大/ドラッグ操作の短い画面録画(10〜15秒)</div>
+            <div class="shot-block">
+                <img class="shot" src="assets/p08-ranking-map.jpg" alt="ランキングページの地域マップ">
+                <p class="shot-cap">日本地域別ランキング地図 — 地域ホバー時に人気投稿3件をプレビュー表示</p>
+            </div>
+            <!-- YouTube動画が準備出来次第、以下のコメントを外して埋め込み予定
+            <div class="shot-block" style="aspect-ratio:16/9;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID"
+                        title="ランキング地図 ズーム/ドラッグ操作デモ" frameborder="0" allowfullscreen
+                        style="border-radius:12px;"></iframe>
+            </div>
+            -->
+            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P08-video">
+                <div><span class="tag">素材 P08-video(任意)</span>確大/ドラッグ操作のYouTube動画リンクをもらい次第、埋め込み予定</div>
             </div>
             <div class="ai-note"><span>🤖</span><div><b>AI活用:</b> SVGのviewBox座標変換によるズーム/パンの実装は、カリキュラムで学んでいなかった技術。AIから数式の原理(コンテンツ座標とスクリーン座標の変換)を教わりながら学習し、自ら実装・デバッグした。</div></div>
         </div>
@@ -590,8 +661,9 @@
         <div class="card">
             <h3>📱 モバイル対応</h3>
             <p>767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。</p>
-            <div class="media-box" style="aspect-ratio:9/16;max-width:320px;margin:18px auto;" data-asset="P09">
-                <div><span class="tag">素材 P09</span>モバイル幅でのドロワーメニュー展開画面</div>
+            <div class="mobile-shot-wrap">
+                <img class="shot" src="assets/p09-mobile-drawer.jpg" alt="モバイル幅でのドロワーメニュー">
+                <p class="shot-cap">767px以下で表示されるドロワー型ナビゲーション</p>
             </div>
         </div>
     </div>

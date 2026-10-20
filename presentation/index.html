@@ -690,13 +690,20 @@
             <div class="ai-note"><span>🤖</span><div data-i18n="advanced.mapAi"><b>AI活用:</b> SVGのviewBox座標変換によるズーム/パンの実装は、カリキュラムで学んでいなかった技術。AIから数式の原理(コンテンツ座標とスクリーン座標の変換)を教わりながら学習し、自ら実装・デバッグした。</div></div>
         </div>
 
-        <div class="card">
+        <div class="card" style="margin-bottom:28px;">
             <h3 data-i18n="advanced.mobileTitle">📱 モバイル対応</h3>
             <p data-i18n="advanced.mobileBody">767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。</p>
             <div class="mobile-shot-wrap">
                 <img class="shot" src="assets/p09-mobile-drawer.jpg" alt="モバイル幅でのドロワーメニュー">
                 <p class="shot-cap" data-i18n="advanced.mobileShotCap">767px以下で表示されるドロワー型ナビゲーション</p>
             </div>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="advanced.secTitle">🔐 セキュリティ強化(パスワードハッシュ化・DBアカウント移行)</h3>
+            <p data-i18n="advanced.secBody1">それまで平文で保存されていた会員パスワードを、PBKDF2WithHmacSHA256(12万回反復・ユーザーごとのランダムソルト)でハッシュ化する方式に変更した。外部ライブラリを追加せず、JDK標準APIのみで実装。既存会員のパスワードもその場でハッシュに変換し、会員が何も操作しなくてもそのまま同じパスワードでログインできるようにした。</p>
+            <p data-i18n="advanced.secBody2">ブランド名変更に伴い、Oracle DBの接続アカウントも無停止で移行した(trable→travel)。新アカウントでスキーマを再構築し、11テーブル全件のデータをコピーした後、件数が完全に一致することを確認し、8個のシーケンスを次のIDから続くよう再同期した。旧アカウントはロールバック用に残してある。</p>
+            <div class="ai-note"><span>🤖</span><div data-i18n="advanced.secAi"><b>AI活用:</b> PBKDF2の反復回数・ソルト設計や、Oracleのシーケンス再同期のテクニックなど、独学では知らなかった実務的な手法をAIと一緒に検討しながら、実際のコマンド実行とデータ検証は自ら行った。</div></div>
         </div>
     </div>
 </section>
@@ -730,6 +737,12 @@
             <h4 data-i18n="trouble.i4.h">sqlplus経由の韓国語データ投入でUTF-8が化ける</h4>
             <p class="problem" data-i18n="trouble.i4.p">問題</p>
             <p class="fix" data-i18n="trouble.i4.f">解決</p>
+        </div>
+
+        <div class="ts-item">
+            <h4 data-i18n="trouble.i5.h">DB移行作業中に発見したschema.sqlの構文バグ</h4>
+            <p class="problem" data-i18n="trouble.i5.p">問題</p>
+            <p class="fix" data-i18n="trouble.i5.f">解決</p>
         </div>
     </div>
 </section>
@@ -773,6 +786,11 @@
                 本プロジェクトは、まずFirebase(Authentication / Firestore / Storage)を用いた反応型モックアップとして
                 チーム4名で共同開発を開始し、その後Oracle/JDBCへの本格移行を行った。
                 初期モックアップは <a href="../demo/" target="_blank">こちら(チーム初期プロトタイプ)</a> から確認できる。
+            </p>
+            <p data-i18n="teamai.histBody2">
+                その後、ポートフォリオを本格的な就活用に仕上げる過程で、ブランド名をTrableからTravelへ全面的に変更した。
+                表示テキストだけでなく、ドメイン(Cloudflareでtravel.elytext.comに切替)、GitHubリポジトリ2つの名称、
+                そしてOracle DBの接続アカウントまで一貫して揃えた。
             </p>
         </div>
     </div>
@@ -894,6 +912,10 @@
             "advanced.mobileTitle": "📱 モバイル対応",
             "advanced.mobileBody": "767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。",
             "advanced.mobileShotCap": "767px以下で表示されるドロワー型ナビゲーション",
+            "advanced.secTitle": "🔐 セキュリティ強化(パスワードハッシュ化・DBアカウント移行)",
+            "advanced.secBody1": "それまで平文で保存されていた会員パスワードを、PBKDF2WithHmacSHA256(12万回反復・ユーザーごとのランダムソルト)でハッシュ化する方式に変更した。外部ライブラリを追加せず、JDK標準APIのみで実装。既存会員のパスワードもその場でハッシュに変換し、会員が何も操作しなくてもそのまま同じパスワードでログインできるようにした。",
+            "advanced.secBody2": "ブランド名変更に伴い、Oracle DBの接続アカウントも無停止で移行した(trable→travel)。新アカウントでスキーマを再構築し、11テーブル全件のデータをコピーした後、件数が完全に一致することを確認し、8個のシーケンスを次のIDから続くよう再同期した。旧アカウントはロールバック用に残してある。",
+            "advanced.secAi": "<b>AI活用:</b> PBKDF2の反復回数・ソルト設計や、Oracleのシーケンス再同期のテクニックなど、独学では知らなかった実務的な手法をAIと一緒に検討しながら、実際のコマンド実行とデータ検証は自ら行った。",
 
             "trouble.title": "トラブルシューティング", "trouble.sub": "開発・運用中に実際に遭遇した問題と解決",
             "trouble.i1.h": "CDNキャッシュにより、CSS/画像修正が本番に反映されない",
@@ -907,6 +929,9 @@
             "trouble.i4.h": "sqlplus経由の韓国語データ投入でUTF-8が化ける",
             "trouble.i4.p": "<b>問題:</b> <code>NLS_LANG</code>を明示せずにsqlplusへ韓国語文字列を流し込むと、DB自体はAL32UTF8で正しく設定されているにもかかわらず、投入データだけが文字化け(U+FFFD)した。",
             "trouble.i4.f": "<b>解決:</b> <code>NLS_LANG=AMERICAN_AMERICA.AL32UTF8</code>を明示してから実行するよう徹底。",
+            "trouble.i5.h": "DB移行作業中に発見したschema.sqlの構文バグ",
+            "trouble.i5.p": "<b>問題:</b> DBアカウント移行のためschema.sqlを新規ユーザーに対して最初から実行したところ、membersテーブルの作成自体が失敗し、それを参照する全テーブルが連鎖的に「ORA-00942: table or view does not exist」で失敗した。",
+            "trouble.i5.f": "<b>解決:</b> 原因は、CREATE TABLEの閉じ括弧の直前に空行を挟んでコメントだけのブロックを置いていたこと。SQL*Plusがそれを見て次の行を独立したコマンドと誤認識し(<code>SP2-0042: unknown command \")\"</code>)、文全体を静かに失敗させていた。コメントを文の外に移動して解決し、同じパターンが他にないか全体をスキャンして確認した。",
 
             "teamai.title": "チーム協業方式とAI活用について", "teamai.sub": "正直に、具体的に示す",
             "teamai.mineTitle": "✅ 自分が実装した範囲",
@@ -920,6 +945,7 @@
             "teamai.aiP2": "<b>AIに代わりに作ってもらった成果物ではなく、AIを通じて技術を教わり、学習を並行しながら完成させた成果物</b>である点を明確にしておきたい。実装の意図・設計判断・デバッグは自ら行い、AIは「新しい技術を学ぶ相手」として活用した。",
             "teamai.histTitle": "📦 プロジェクトの変遷",
             "teamai.histBody": "本プロジェクトは、まずFirebase(Authentication / Firestore / Storage)を用いた反応型モックアップとしてチーム4名で共同開発を開始し、その後Oracle/JDBCへの本格移行を行った。初期モックアップは <a href=\"../demo/\" target=\"_blank\">こちら(チーム初期プロトタイプ)</a> から確認できる。",
+            "teamai.histBody2": "その後、ポートフォリオを本格的な就活用に仕上げる過程で、ブランド名をTrableからTravelへ全面的に変更した。表示テキストだけでなく、ドメイン(Cloudflareでtravel.elytext.comに切替)、GitHubリポジトリ2つの名称、そしてOracle DBの接続アカウントまで一貫して揃えた。",
 
             "closing.title": "ご覧いただきありがとうございました",
             "closing.body": "実際に動作するライブサイトで、全機能をお試しいただけます。",
@@ -1013,6 +1039,10 @@
             "advanced.mobileTitle": "📱 모바일 대응",
             "advanced.mobileBody": "767px 이하에서 드로어형 내비게이션으로 전환. 지도의 줌 기능과 페이지 스크롤이 충돌하지 않도록 터치 조작 폴백 처리도 구현.",
             "advanced.mobileShotCap": "767px 이하에서 표시되는 드로어형 내비게이션",
+            "advanced.secTitle": "🔐 보안 강화(비밀번호 해싱·DB 계정 이전)",
+            "advanced.secBody1": "그동안 평문으로 저장되던 회원 비밀번호를 PBKDF2WithHmacSHA256(12만 회 반복, 사용자별 무작위 솔트)로 해싱하는 방식으로 바꿨다. 외부 라이브러리 추가 없이 JDK 표준 API만으로 구현했다. 기존 회원의 비밀번호도 그 자리에서 해시로 변환해서, 회원이 아무것도 하지 않아도 같은 비밀번호로 그대로 로그인할 수 있게 했다.",
+            "advanced.secBody2": "브랜드명 변경에 맞춰 Oracle DB 접속 계정도 무중단으로 이전했다(trable→travel). 새 계정으로 스키마를 재구축하고 11개 테이블 전체 데이터를 복사한 뒤 건수가 정확히 일치하는지 확인했고, 8개 시퀀스를 다음 ID부터 이어지도록 재동기화했다. 기존 계정은 롤백용으로 남겨뒀다.",
+            "advanced.secAi": "<b>AI 활용:</b> PBKDF2 반복 횟수·솔트 설계, Oracle 시퀀스 재동기화 기법처럼 혼자서는 몰랐던 실무적인 방법들을 AI와 함께 검토하면서, 실제 명령 실행과 데이터 검증은 직접 수행했다.",
 
             "trouble.title": "트러블슈팅", "trouble.sub": "개발·운영 중 실제로 겪은 문제와 해결",
             "trouble.i1.h": "CDN 캐시 때문에 CSS/이미지 수정이 운영 사이트에 반영되지 않음",
@@ -1026,6 +1056,9 @@
             "trouble.i4.h": "sqlplus를 통한 한국어 데이터 입력 시 UTF-8이 깨지는 문제",
             "trouble.i4.p": "<b>문제:</b> <code>NLS_LANG</code>을 명시하지 않고 sqlplus로 한국어 문자열을 넣으면, DB 자체는 AL32UTF8로 올바르게 설정돼 있는데도 입력한 데이터만 깨짐(U+FFFD) 현상이 발생.",
             "trouble.i4.f": "<b>해결:</b> <code>NLS_LANG=AMERICAN_AMERICA.AL32UTF8</code>을 명시한 뒤 실행하도록 철저히 함.",
+            "trouble.i5.h": "DB 이전 작업 중 발견한 schema.sql 구문 버그",
+            "trouble.i5.p": "<b>문제:</b> DB 계정 이전을 위해 schema.sql을 새 계정에 처음부터 실행했더니, members 테이블 생성 자체가 실패하고 이를 참조하는 모든 테이블이 연쇄적으로 \"ORA-00942: table or view does not exist\"로 실패했다.",
+            "trouble.i5.f": "<b>해결:</b> 원인은 CREATE TABLE의 닫는 괄호 바로 앞에 빈 줄을 끼워 주석만 있는 블록을 둔 것. SQL*Plus가 이를 보고 다음 줄을 독립된 명령으로 잘못 인식해서(<code>SP2-0042: unknown command \")\"</code>) 문장 전체를 조용히 실패시키고 있었다. 주석을 문장 밖으로 옮겨서 해결했고, 같은 패턴이 다른 곳에 없는지 전체를 스캔해서 확인했다.",
 
             "teamai.title": "팀 협업 방식과 AI 활용에 대하여", "teamai.sub": "정직하고 구체적으로 밝힘",
             "teamai.mineTitle": "✅ 제가 직접 구현한 범위",
@@ -1039,6 +1072,7 @@
             "teamai.aiP2": "<b>AI가 대신 만들어준 결과물이 아니라, AI를 통해 기술을 배우고 학습을 병행하며 완성한 결과물</b>이라는 점을 분명히 밝히고 싶다. 구현 의도·설계 판단·디버깅은 직접 수행했으며, AI는 “새로운 기술을 배우는 상대”로 활용했다.",
             "teamai.histTitle": "📦 프로젝트의 변천",
             "teamai.histBody": "본 프로젝트는 먼저 Firebase(Authentication / Firestore / Storage)를 이용한 반응형 목업으로 4명의 팀이 공동 개발을 시작했고, 이후 Oracle/JDBC로 본격 전환했다. 초기 목업은 <a href=\"../demo/\" target=\"_blank\">여기(팀 초기 프로토타입)</a>에서 확인할 수 있다.",
+            "teamai.histBody2": "이후 포트폴리오를 본격적인 구직용으로 다듬는 과정에서 브랜드명을 Trable에서 Travel로 전면 전환했다. 화면에 보이는 텍스트뿐 아니라 도메인(Cloudflare에서 travel.elytext.com으로 전환), GitHub 저장소 2개의 이름, Oracle DB 접속 계정까지 전부 일관되게 맞췄다.",
 
             "closing.title": "봐주셔서 감사합니다",
             "closing.body": "실제로 동작하는 라이브 사이트에서 전체 기능을 직접 사용해보실 수 있습니다.",

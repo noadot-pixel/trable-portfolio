@@ -545,12 +545,9 @@
         <h2 data-i18n="db.title">DB設計(ERD)</h2>
         <p class="section-sub" data-i18n="db.sub">Oracle 11g XE / 全10テーブル</p>
 
-        <div class="media-box" style="aspect-ratio:16/9;" data-asset="P01">
-            <div data-i18n="db.p01">
-                <span class="tag">素材 P01(任意)</span>
-                実際のER図(画像)を挿入する場合はここに配置<br>
-                <span style="font-size:0.72rem;">※ 下の表だけでも代替可能</span>
-            </div>
+        <div class="shot-block">
+            <img class="shot" id="erdImg" data-src-ja="assets/p01-erd-ja.png" data-src-ko="assets/p01-erd-ko.png" src="assets/p01-erd-ja.png" alt="データベースER図(全11テーブル)">
+            <p class="shot-cap" data-i18n="db.p01Cap">全11テーブルの主キー・外部キー・連鎖削除関係を図示</p>
         </div>
 
         <table>
@@ -565,6 +562,7 @@
             <tr><td>notifications</td><td>notif_id</td><td data-i18n="db.d.notifs">個人宛通知(コメント/いいね)。未読/既読管理</td></tr>
             <tr><td>faqs</td><td>faq_id</td><td data-i18n="db.d.faqs">よくある質問(フッターから閲覧、管理者が編集)</td></tr>
             <tr><td>inquiries</td><td>inquiry_id</td><td data-i18n="db.d.inquiries">問い合わせ。公開/非公開(本人+管理者のみ)設定可</td></tr>
+            <tr><td>inquiry_comments</td><td>inquiry_comment_id</td><td data-i18n="db.d.inquiryComments">問い合わせコメント。inquiries削除時にON DELETE CASCADE</td></tr>
         </table>
     </div>
 </section>
@@ -719,17 +717,10 @@
                 <img class="shot" src="assets/p08-ranking-map.jpg" alt="ランキングページの地域マップ">
                 <p class="shot-cap" data-i18n="advanced.mapShotCap">日本地域別ランキング地図 — 地域ホバー時に人気投稿3件をプレビュー表示</p>
             </div>
-            <!-- 全機能を1本のYouTube動画にまとめ、各カードはstart/end(秒)でその区間だけ飛ばす方式。
-                 VIDEO_IDを置き換えた後、start/endも実際の区間秒数に直して以下のコメントを外す。
-                 (区間の目安: 0. ランキング地図 → 1. 多言語 → 2. ダークモード → 3. モバイル → 4. お知らせ → 5. FAQ)
             <div class="shot-block" style="aspect-ratio:16/9;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=0&end=25"
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/9TL_MLhyhmQ?start=210&end=243"
                         title="ランキング地図 ズーム/ドラッグ操作デモ" frameborder="0" allowfullscreen
                         style="border-radius:12px;"></iframe>
-            </div>
-            -->
-            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P08-video">
-                <div data-i18n="advanced.mapVideoPlaceholder"><span class="tag">素材 P08-video(任意)</span>拡大/ドラッグ操作のYouTube動画リンクをもらい次第、埋め込み予定</div>
             </div>
             <div class="ai-note"><span>🤖</span><div data-i18n="advanced.mapAi"><b>AI活用:</b> SVGのviewBox座標変換によるズーム/パンの実装は、カリキュラムで学んでいなかった技術。AIから数式の原理(コンテンツ座標とスクリーン座標の変換)を教わりながら学習し、自ら実装・デバッグした。</div></div>
         </div>
@@ -922,8 +913,8 @@
             "arch.title": "システムアーキテクチャ(MVC2)", "arch.sub": "Command パターンによるリクエスト処理",
             "arch.body": "コントローラーはURLパスからCommandを選び実行するのみで、SQLやビジネスロジックを持たない。Commandが戻り値(true/false)でforward(画面表示)かredirect(処理完了後の再読み込み防止)かを制御する。DTOは各層間のデータ受け渡し専用で、DAOのみがSQLを実行する。",
 
-            "db.title": "DB設計(ERD)", "db.sub": "Oracle 11g XE / 全10テーブル",
-            "db.p01": "<span class=\"tag\">素材 P01(任意)</span>実際のER図(画像)を挿入する場合はここに配置<br><span style=\"font-size:0.72rem;\">※ 下の表だけでも代替可能</span>",
+            "db.title": "DB設計(ERD)", "db.sub": "Oracle 11g XE / 全11テーブル",
+            "db.p01Cap": "全11テーブルの主キー・外部キー・連鎖削除関係を図示",
             "db.th1": "テーブル", "db.th3": "説明",
             "db.d.members": "会員(ログインID=メール)。admin_level(0/1/2)で権限管理、dark_mode等の個人設定も保持",
             "db.d.posts": "投稿。country/region/styleでタグ付け、view_cnt・like_cntを集計カラムとして保持",
@@ -935,6 +926,7 @@
             "db.d.notifs": "個人宛通知(コメント/いいね)。未読/既読管理",
             "db.d.faqs": "よくある質問(フッターから閲覧、管理者が編集)",
             "db.d.inquiries": "問い合わせ。公開/非公開(本人+管理者のみ)設定可",
+            "db.d.inquiryComments": "問い合わせコメント。inquiries削除時にON DELETE CASCADE",
 
             "myfeature.title": "担当機能 — お知らせ・FAQ・お問い合わせ",
             "myfeature.sub": "チームプロジェクト内での担当範囲(JSP〜Controller〜Command〜DAO〜DTOを一貫して実装)",
@@ -1054,8 +1046,8 @@
             "arch.title": "시스템 아키텍처(MVC2)", "arch.sub": "Command 패턴 기반 요청 처리",
             "arch.body": "컨트롤러는 URL 경로에서 Command를 선택해 실행할 뿐, SQL이나 비즈니스 로직을 갖지 않는다. Command가 반환값(true/false)으로 forward(화면 표시)할지 redirect(처리 완료 후 새로고침 방지)할지를 제어한다. DTO는 각 계층 간 데이터 전달 전용이며, DAO만이 SQL을 실행한다.",
 
-            "db.title": "DB 설계(ERD)", "db.sub": "Oracle 11g XE / 전체 10개 테이블",
-            "db.p01": "<span class=\"tag\">소재 P01(선택)</span>실제 ERD(이미지)를 넣을 경우 여기에 배치<br><span style=\"font-size:0.72rem;\">※ 아래 표만으로도 대체 가능</span>",
+            "db.title": "DB 설계(ERD)", "db.sub": "Oracle 11g XE / 전체 11개 테이블",
+            "db.p01Cap": "전체 11개 테이블의 기본키·외래키·연쇄 삭제 관계를 도식화",
             "db.th1": "테이블", "db.th3": "설명",
             "db.d.members": "회원(로그인 ID=이메일). admin_level(0/1/2)로 권한 관리, dark_mode 등 개인 설정도 보유",
             "db.d.posts": "게시글. country/region/style로 태그 지정, view_cnt·like_cnt를 집계 컬럼으로 보유",
@@ -1067,6 +1059,7 @@
             "db.d.notifs": "개인 대상 알림(댓글/좋아요). 읽음/안읽음 관리",
             "db.d.faqs": "자주 묻는 질문(푸터에서 열람, 관리자가 편집)",
             "db.d.inquiries": "문의. 공개/비공개(본인+관리자만) 설정 가능",
+            "db.d.inquiryComments": "문의 댓글. inquiries 삭제 시 ON DELETE CASCADE",
 
             "myfeature.title": "담당 기능 — 공지사항·FAQ·문의",
             "myfeature.sub": "팀 프로젝트 내에서의 담당 범위(JSP~Controller~Command~DAO~DTO를 일관되게 구현)",
@@ -1160,6 +1153,10 @@
         });
         document.querySelectorAll(".lang-btn").forEach(function (btn) {
             btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+        document.querySelectorAll("[data-src-ja]").forEach(function (img) {
+            var src = img.getAttribute(lang === "ko" ? "data-src-ko" : "data-src-ja");
+            if (src) img.src = src;
         });
     }
 

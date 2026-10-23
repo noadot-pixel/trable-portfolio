@@ -606,6 +606,17 @@
             <p class="shot-cap" data-i18n="myfeature.shotFaqCap">サポートページ — よくある質問(アコーディオン表示)とお問い合わせフォームが同一画面に統合されている</p>
         </div>
 
+        <!-- VIDEO_IDを置き換えた後、start/endを実際の区間秒数に直して以下のコメントを外す(区間5: FAQ)
+        <div class="shot-block" style="aspect-ratio:16/9;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=145&end=165"
+                    title="FAQ管理画面デモ" frameborder="0" allowfullscreen
+                    style="border-radius:12px;"></iframe>
+        </div>
+        -->
+        <div class="media-box" style="aspect-ratio:16/9;" data-asset="P02-video">
+            <div data-i18n="myfeature.faqVideoPlaceholder"><span class="tag">素材 P02-video(任意)</span>FAQ管理画面デモのYouTube動画リンクをもらい次第、埋め込み予定</div>
+        </div>
+
         <div class="shot-grid cols-2">
             <figure>
                 <img class="shot" src="assets/p03a-notice-list.jpg" alt="お知らせ一覧画面">
@@ -615,6 +626,17 @@
                 <img class="shot" src="assets/p03b-admin-dashboard.jpg" alt="管理者ダッシュボード画面">
                 <figcaption data-i18n="myfeature.adminDashCap">管理者ダッシュボード — お知らせ管理・FAQ管理カード</figcaption>
             </figure>
+        </div>
+
+        <!-- VIDEO_IDを置き換えた後、start/endを実際の区間秒数に直して以下のコメントを外す(区間4: お知らせ)
+        <div class="shot-block" style="aspect-ratio:16/9;">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=115&end=140"
+                    title="お知らせ一覧・管理画面デモ" frameborder="0" allowfullscreen
+                    style="border-radius:12px;"></iframe>
+        </div>
+        -->
+        <div class="media-box" style="aspect-ratio:16/9;" data-asset="P03-video">
+            <div data-i18n="myfeature.noticeVideoPlaceholder"><span class="tag">素材 P03-video(任意)</span>お知らせ一覧・管理画面デモのYouTube動画リンクをもらい次第、埋め込み予定</div>
         </div>
     </div>
 </section>
@@ -643,6 +665,16 @@
                     <figcaption>日本語</figcaption>
                 </figure>
             </div>
+            <!-- VIDEO_IDを置き換えた後、start/endを実際の区間秒数に直して以下のコメントを外す(区間1: 多言語)
+            <div class="shot-block" style="aspect-ratio:16/9;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=30&end=55"
+                        title="多言語対応デモ" frameborder="0" allowfullscreen
+                        style="border-radius:12px;"></iframe>
+            </div>
+            -->
+            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P05-video">
+                <div data-i18n="advanced.i18nVideoPlaceholder"><span class="tag">素材 P05-video(任意)</span>言語切替デモのYouTube動画リンクをもらい次第、埋め込み予定</div>
+            </div>
             <div class="ai-note"><span>🤖</span><div data-i18n="advanced.i18nAi"><b>AI活用:</b> 動的コンテンツ(AJAX挿入分)まで一貫して翻訳が当たる仕組みの設計をAIと相談しながら構築。</div></div>
         </div>
 
@@ -658,6 +690,16 @@
                     <img class="shot" src="assets/p06-dark.jpg" alt="ダークモード">
                     <figcaption data-i18n="advanced.darkCap">ダークモード</figcaption>
                 </figure>
+            </div>
+            <!-- VIDEO_IDを置き換えた後、start/endを実際の区間秒数に直して以下のコメントを外す(区間2: ダークモード)
+            <div class="shot-block" style="aspect-ratio:16/9;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=60&end=80"
+                        title="ライト/ダークモード切替デモ" frameborder="0" allowfullscreen
+                        style="border-radius:12px;"></iframe>
+            </div>
+            -->
+            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P06-video">
+                <div data-i18n="advanced.darkVideoPlaceholder"><span class="tag">素材 P06-video(任意)</span>ライト/ダークモード切替デモのYouTube動画リンクをもらい次第、埋め込み予定</div>
             </div>
         </div>
 
@@ -677,9 +719,11 @@
                 <img class="shot" src="assets/p08-ranking-map.jpg" alt="ランキングページの地域マップ">
                 <p class="shot-cap" data-i18n="advanced.mapShotCap">日本地域別ランキング地図 — 地域ホバー時に人気投稿3件をプレビュー表示</p>
             </div>
-            <!-- YouTube動画が準備出来次第、以下のコメントを外して埋め込み予定
+            <!-- 全機能を1本のYouTube動画にまとめ、各カードはstart/end(秒)でその区間だけ飛ばす方式。
+                 VIDEO_IDを置き換えた後、start/endも実際の区間秒数に直して以下のコメントを外す。
+                 (区間の目安: 0. ランキング地図 → 1. 多言語 → 2. ダークモード → 3. モバイル → 4. お知らせ → 5. FAQ)
             <div class="shot-block" style="aspect-ratio:16/9;">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID"
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=0&end=25"
                         title="ランキング地図 ズーム/ドラッグ操作デモ" frameborder="0" allowfullscreen
                         style="border-radius:12px;"></iframe>
             </div>
@@ -696,6 +740,16 @@
             <div class="mobile-shot-wrap">
                 <img class="shot" src="assets/p09-mobile-drawer.jpg" alt="モバイル幅でのドロワーメニュー">
                 <p class="shot-cap" data-i18n="advanced.mobileShotCap">767px以下で表示されるドロワー型ナビゲーション</p>
+            </div>
+            <!-- VIDEO_IDを置き換えた後、start/endを実際の区間秒数に直して以下のコメントを外す(区間3: モバイル)
+            <div class="shot-block" style="aspect-ratio:16/9;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID?start=85&end=110"
+                        title="モバイル幅ドロワーメニュー操作デモ" frameborder="0" allowfullscreen
+                        style="border-radius:12px;"></iframe>
+            </div>
+            -->
+            <div class="media-box" style="aspect-ratio:16/9;" data-asset="P09-video">
+                <div data-i18n="advanced.mobileVideoPlaceholder"><span class="tag">素材 P09-video(任意)</span>モバイル幅ドロワーメニュー操作デモのYouTube動画リンクをもらい次第、埋め込み予定</div>
             </div>
         </div>
 
@@ -890,17 +944,21 @@
             "myfeature.inquiryTitle": "✉️ お問い合わせ(Inquiry)",
             "myfeature.inquiryBody": "<li>会員による問い合わせ投稿</li><li>公開/非公開設定(本人+管理者のみ閲覧)</li>",
             "myfeature.shotFaqCap": "サポートページ — よくある質問(アコーディオン表示)とお問い合わせフォームが同一画面に統合されている",
+            "myfeature.faqVideoPlaceholder": "<span class=\"tag\">素材 P02-video(任意)</span>FAQ管理画面デモのYouTube動画リンクをもらい次第、埋め込み予定",
             "myfeature.noticeListCap": "お知らせ一覧(一般会員向け公開画面)",
             "myfeature.adminDashCap": "管理者ダッシュボード — お知らせ管理・FAQ管理カード",
+            "myfeature.noticeVideoPlaceholder": "<span class=\"tag\">素材 P03-video(任意)</span>お知らせ一覧・管理画面デモのYouTube動画リンクをもらい次第、埋め込み予定",
 
             "advanced.title": "個人開発パート(高度化)",
             "advanced.sub": "チームプロジェクト終了後、ポートフォリオとして個人で設計・実装した拡張機能",
             "advanced.i18nTitle": "🌐 多言語対応(韓国語 / 英語 / 日本語)",
             "advanced.i18nBody": "ヘッダーの言語セレクターで即座に切替。静的テキストだけでなく、JSから動的に挿入されるコメント・通知メッセージ・地図ラベルまで全て翻訳対象。",
+            "advanced.i18nVideoPlaceholder": "<span class=\"tag\">素材 P05-video(任意)</span>言語切替デモのYouTube動画リンクをもらい次第、埋め込み予定",
             "advanced.i18nAi": "<b>AI活用:</b> 動的コンテンツ(AJAX挿入分)まで一貫して翻訳が当たる仕組みの設計をAIと相談しながら構築。",
             "advanced.darkTitle": "🌓 ダークモード",
             "advanced.darkBody": "CSS変数ベースの配色切替。ログイン時はアカウントに保存、未ログイン時はローカルストレージに保存し、次回訪問時も維持。",
             "advanced.lightCap": "ライトモード", "advanced.darkCap": "ダークモード",
+            "advanced.darkVideoPlaceholder": "<span class=\"tag\">素材 P06-video(任意)</span>ライト/ダークモード切替デモのYouTube動画リンクをもらい次第、埋め込み予定",
             "advanced.adminTitle": "🛡️ 管理者権限レベル(0 / 1 / 2)",
             "advanced.adminBody": "一般会員(0)・モデレーター(1)・管理者(2)の3段階。管理者のみが他会員の権限を変更可能、モデレーターは管理者の権限を変更不可、といった権限境界をバックエンド側でも二重に検証。",
             "advanced.adminShotCap": "会員管理画面(権限レベル変更ドロップダウン・活動停止/解除ボタン) — 会員の個人情報(氏名・メールアドレス)部分はマスキング処理済み",
@@ -912,6 +970,7 @@
             "advanced.mobileTitle": "📱 モバイル対応",
             "advanced.mobileBody": "767px以下でドロワー型ナビゲーションに切替。地図のズーム機能とページスクロールが競合しないよう、タッチ操作のフォールバック処理も実装。",
             "advanced.mobileShotCap": "767px以下で表示されるドロワー型ナビゲーション",
+            "advanced.mobileVideoPlaceholder": "<span class=\"tag\">素材 P09-video(任意)</span>モバイル幅ドロワーメニュー操作デモのYouTube動画リンクをもらい次第、埋め込み予定",
             "advanced.secTitle": "🔐 セキュリティ強化(パスワードハッシュ化・DBアカウント移行)",
             "advanced.secBody1": "それまで平文で保存されていた会員パスワードを、PBKDF2WithHmacSHA256(12万回反復・ユーザーごとのランダムソルト)でハッシュ化する方式に変更した。外部ライブラリを追加せず、JDK標準APIのみで実装。既存会員のパスワードもその場でハッシュに変換し、会員が何も操作しなくてもそのまま同じパスワードでログインできるようにした。",
             "advanced.secBody2": "ブランド名変更に伴い、Oracle DBの接続アカウントも無停止で移行した(trable→travel)。新アカウントでスキーマを再構築し、11テーブル全件のデータをコピーした後、件数が完全に一致することを確認し、8個のシーケンスを次のIDから続くよう再同期した。旧アカウントはロールバック用に残してある。",
@@ -1017,17 +1076,21 @@
             "myfeature.inquiryTitle": "✉️ 문의(Inquiry)",
             "myfeature.inquiryBody": "<li>회원의 문의 작성</li><li>공개/비공개 설정(본인+관리자만 열람)</li>",
             "myfeature.shotFaqCap": "지원 페이지 — 자주 묻는 질문(아코디언 표시)과 문의 폼이 한 화면에 통합되어 있음",
+            "myfeature.faqVideoPlaceholder": "<span class=\"tag\">소재 P02-video(선택)</span>FAQ 관리 화면 데모 유튜브 영상 링크를 받는 대로 임베드 예정",
             "myfeature.noticeListCap": "공지사항 목록(일반 회원용 공개 화면)",
             "myfeature.adminDashCap": "관리자 대시보드 — 공지사항 관리·FAQ 관리 카드",
+            "myfeature.noticeVideoPlaceholder": "<span class=\"tag\">소재 P03-video(선택)</span>공지사항 목록·관리 화면 데모 유튜브 영상 링크를 받는 대로 임베드 예정",
 
             "advanced.title": "개인 개발 파트(고도화)",
             "advanced.sub": "팀 프로젝트 종료 후, 포트폴리오로 개인이 설계·구현한 확장 기능",
             "advanced.i18nTitle": "🌐 다국어 지원(한국어 / 영어 / 일본어)",
             "advanced.i18nBody": "헤더의 언어 선택기로 즉시 전환. 정적 텍스트뿐 아니라 JS로 동적으로 삽입되는 댓글·알림 메시지·지도 라벨까지 전부 번역 대상.",
+            "advanced.i18nVideoPlaceholder": "<span class=\"tag\">소재 P05-video(선택)</span>언어 전환 데모 유튜브 영상 링크를 받는 대로 임베드 예정",
             "advanced.i18nAi": "<b>AI 활용:</b> 동적 콘텐츠(AJAX로 삽입되는 부분)까지 일관되게 번역이 적용되는 구조를 AI와 상의하며 설계.",
             "advanced.darkTitle": "🌓 다크모드",
             "advanced.darkBody": "CSS 변수 기반 색상 전환. 로그인 시 계정에 저장, 비로그인 시 로컬 스토리지에 저장해 다음 방문 때도 유지.",
             "advanced.lightCap": "라이트모드", "advanced.darkCap": "다크모드",
+            "advanced.darkVideoPlaceholder": "<span class=\"tag\">소재 P06-video(선택)</span>라이트/다크모드 전환 데모 유튜브 영상 링크를 받는 대로 임베드 예정",
             "advanced.adminTitle": "🛡️ 관리자 권한 레벨(0 / 1 / 2)",
             "advanced.adminBody": "일반 회원(0)·모더레이터(1)·관리자(2)의 3단계. 관리자만 다른 회원의 권한을 변경할 수 있고, 모더레이터는 관리자의 권한을 변경할 수 없다는 권한 경계를 백엔드 측에서도 이중으로 검증.",
             "advanced.adminShotCap": "회원 관리 화면(권한 레벨 변경 드롭다운·활동정지/해제 버튼) — 회원 개인정보(닉네임·이메일) 부분은 마스킹 처리함",
@@ -1039,6 +1102,7 @@
             "advanced.mobileTitle": "📱 모바일 대응",
             "advanced.mobileBody": "767px 이하에서 드로어형 내비게이션으로 전환. 지도의 줌 기능과 페이지 스크롤이 충돌하지 않도록 터치 조작 폴백 처리도 구현.",
             "advanced.mobileShotCap": "767px 이하에서 표시되는 드로어형 내비게이션",
+            "advanced.mobileVideoPlaceholder": "<span class=\"tag\">소재 P09-video(선택)</span>모바일 폭 드로어 메뉴 조작 데모 유튜브 영상 링크를 받는 대로 임베드 예정",
             "advanced.secTitle": "🔐 보안 강화(비밀번호 해싱·DB 계정 이전)",
             "advanced.secBody1": "그동안 평문으로 저장되던 회원 비밀번호를 PBKDF2WithHmacSHA256(12만 회 반복, 사용자별 무작위 솔트)로 해싱하는 방식으로 바꿨다. 외부 라이브러리 추가 없이 JDK 표준 API만으로 구현했다. 기존 회원의 비밀번호도 그 자리에서 해시로 변환해서, 회원이 아무것도 하지 않아도 같은 비밀번호로 그대로 로그인할 수 있게 했다.",
             "advanced.secBody2": "브랜드명 변경에 맞춰 Oracle DB 접속 계정도 무중단으로 이전했다(trable→travel). 새 계정으로 스키마를 재구축하고 11개 테이블 전체 데이터를 복사한 뒤 건수가 정확히 일치하는지 확인했고, 8개 시퀀스를 다음 ID부터 이어지도록 재동기화했다. 기존 계정은 롤백용으로 남겨뒀다.",
